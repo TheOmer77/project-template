@@ -15,5 +15,8 @@ export default defineConfig({
       eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' },
     }),
   ],
-  server: { host: true },
+  server: {
+    host: true,
+    hmr: { clientPort: 80, protocol: 'ws', host: 'localhost' },
+  },
 });
