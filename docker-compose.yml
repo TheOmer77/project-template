@@ -19,6 +19,7 @@ services:
       - /app/node_modules
     environment:
       - VITE_BACKEND_URL=/backend
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
 
   backend:
     build:
@@ -28,3 +29,5 @@ services:
     volumes:
       - ./services/backend:/app
       - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
