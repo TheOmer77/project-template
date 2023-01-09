@@ -44,7 +44,7 @@ This is a common issue if you use Windows/WSL. Due to [a WSL limitation](https:/
 This can be fixed by setting the `CHOKIDAR_USEPOLLING` environment variable to `true` - create an `.env` file and add the following to it:
 
 ```ini
-CHOKIDAR_USEPOLLING=false
+CHOKIDAR_USEPOLLING=true
 ```
 
 #### Cannot run `npm install` outside of containers
