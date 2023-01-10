@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --exec \"node --inspect=0.0.0.0 --require ts-node/register src/index.ts\"",
-    "build": "tsc"
+    "build": "npm run lint && tsc",
+    "lint": "eslint --max-warnings=0 src"
   },
   "dependencies": {
     "cors": "^2.8.5",
