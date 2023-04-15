@@ -4,7 +4,7 @@ This is my personal full stack project template, consisting of a [React](https:/
 
 In local development, both the frontend & backend services are run using [Docker](https://www.docker.com/), and are both accessible from an [NGINX](https://www.nginx.com/) reverse proxy; Additional services & environment variables can be added in `docker-compose.yml`.
 
-Additionally, this template includes a [Prettier](https://prettier.io/) `.prettierrc` for the entire project, as well as an [ESLint](https://eslint.org/) `.eslintrc.json` for both the frontend & the backend. Installing the relevant VSCode extenstions is recommended.
+Additionally, this template includes a [Prettier](https://prettier.io/) `.prettierrc` for the entire project, as well as an [ESLint](https://eslint.org/) `.eslintrc.json` for both the frontend & the backend. Installing the relevant VSCode extensions is recommended.
 
 ## Local development
 
