@@ -6,8 +6,7 @@ services:
       - backend
       - frontend
     restart: always
-    build:
-      context: ./services/nginx
+    build: ./services/nginx
     ports:
       - '80:80'
 
