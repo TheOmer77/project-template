@@ -1,16 +1,20 @@
+ARG SERVICE_NAME=frontend
+
 FROM node:18.14.2-alpine3.17 as builder
+ARG SERVICE_NAME
 
 WORKDIR /app
-
 COPY package*.json ./
+COPY ./services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
 RUN npm ci
 
 COPY . .
-RUN npm run build
+RUN npm run build -w ${SERVICE_NAME}
 
 FROM nginx:1.23.3-alpine
+ARG SERVICE_NAME
 
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/services/$SERVICE_NAME/dist /usr/share/nginx/html
+COPY ./services/$SERVICE_NAME/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
