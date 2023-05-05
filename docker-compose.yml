@@ -18,7 +18,7 @@ services:
       - ./services/frontend:/app/services/frontend
       - /app/services/frontend/node_modules # Vite cache
     environment:
-      - VITE_BACKEND_URL=/backend
+      - VITE_BACKEND_URL=/api
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
 
   backend:
