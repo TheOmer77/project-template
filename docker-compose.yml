@@ -12,21 +12,22 @@ services:
 
   frontend:
     build:
-      context: ./services/frontend
+      dockerfile: ./services/frontend/Dockerfile
+      context: .
     volumes:
-      - ./services/frontend:/app
-      - /app/node_modules
+      - ./services/frontend:/app/services/frontend
+      - /app/services/frontend/node_modules # Vite cache
     environment:
       - VITE_BACKEND_URL=/backend
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
 
   backend:
     build:
-      context: ./services/backend
+      dockerfile: ./services/backend/Dockerfile
+      context: .
     ports:
       - '9229:9229'
     volumes:
-      - ./services/backend:/app
-      - /app/node_modules
+      - ./services/backend:/app/services/backend
     environment:
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
