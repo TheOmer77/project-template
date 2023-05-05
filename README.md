@@ -53,7 +53,7 @@ backend:
     - ENV_VAR=${ENV_VAR}
 ```
 
-### Problems you may encounter
+### Troubleshooting
 
 #### No HMR/server not restarting when making changes
 
