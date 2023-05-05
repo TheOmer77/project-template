@@ -1,25 +1,31 @@
+ARG SERVICE_NAME=backend
+
 FROM node:18.14.2-alpine3.17 as builder
+ARG SERVICE_NAME
 
 WORKDIR /app
-
 COPY package*.json ./
+COPY ./services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
 RUN npm ci
 
 COPY . .
-RUN npm run build
+RUN npm run build -w ${SERVICE_NAME}
 
 FROM node:18.14.2-alpine3.17
+ARG SERVICE_NAME
 
+ENV SERVICE_NAME=${SERVICE_NAME}
 ENV NODE_PATH=dist/
 ENV NODE_ENV=production
 ENV PORT=80
 
 WORKDIR /app
-
-COPY package*.json ./
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/services/${SERVICE_NAME}/package.json \
+  /app/services/${SERVICE_NAME}/tsconfig.json ./services/${SERVICE_NAME}/
 RUN npm ci --omit=dev
 
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/services/${SERVICE_NAME}/dist ./services/${SERVICE_NAME}/dist/
 
 EXPOSE 80
-CMD ["npm", "start"]
+CMD ["npm", "start", "-w", "${SERVICE_NAME}"]
