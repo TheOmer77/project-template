@@ -18,9 +18,15 @@ Then just open [http://localhost](http://localhost) (port 80) in your web browse
 
 Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server (using `nodemon`) to restart.
 
-### Updating dependencies
+### Installing dependencies
 
-If you install or update any dependencies in either service, you need to rebuild the service you have installed dependencies in. Run the following, replacing `<services>` with the services you want to rebuild:
+To install dependencies in a service, run:
+
+```bash
+npm i -w <service> <dependencies>
+```
+
+Note that you will have to rebuild the service you have installed dependencies in.
 
 ```bash
 docker builder prune -af
@@ -29,10 +35,22 @@ docker compose up -d --build <service>
 
 ### Updating environment variables
 
-If you update any environment variables, the changes are not shown automatically; However, a full rebuild is not necessary - recreating the container is enough. Run the following, replacing `<services>` with the services you want to recreate:
+Environment variables for the entire project are stored in the `.env` file. After editing this file, the new variables will not be applied until you recreate the services that use them:
 
 ```bash
 docker compose up -d --force-recreate <services>
+```
+
+Note that if you add new variables to `.env`, you will have to add them to the appropriate services in `docker-compose.yml` **before you recreate the services.** Also note, that the frontend will only recognize variables starting with `VITE_` (this prefix can be changed).
+
+```yml
+frontend:
+  environment:
+    - VITE_ENV_VAR=${ENV_VAR}
+
+backend:
+  environment:
+    - ENV_VAR=${ENV_VAR}
 ```
 
 ### Problems you may encounter
@@ -44,7 +62,7 @@ This is a common issue if you use Windows/WSL. Due to [a WSL limitation](https:/
 To fix it, you could either:
 
 - **Recommended:** Move the project folder outside of a Windows filesystem (into your WSL distro), and use WSL2 applications to edit your files. Accessing the Windows filesystem from WSL2 is slow, so doing this will improve performance.
-- Add `CHOKIDAR_USEPOLLING=true` to your .env file (create one if you haven't). Note that this [leads to high CPU utilization](https://github.com/paulmillr/chokidar#performance).
+- Add `CHOKIDAR_USEPOLLING=true` to your `.env` file. Note that this [leads to high CPU utilization](https://github.com/paulmillr/chokidar#performance).
 
 #### Cannot run `npm install` outside of containers
 
