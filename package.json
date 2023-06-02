@@ -5,14 +5,22 @@
   "author": "TheOmer77",
   "license": "ISC",
   "private": true,
+  "scripts": {
+    "postinstall": "patch-package"
+  },
   "workspaces": [
-    "services/*"
+    "services/*",
+    "packages/*"
   ],
   "devDependencies": {
+    "@esbuild-plugins/tsconfig-paths": "^0.1.2",
     "@types/node": "^20.2.5",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
+    "esbuild-plugin-eslint": "^0.3.6",
     "eslint": "^8.41.0",
+    "patch-package": "^7.0.0",
+    "tsup": "^6.7.0",
     "typescript": "^5.1.3"
   }
 }
