@@ -7,5 +7,12 @@
   "private": true,
   "workspaces": [
     "services/*"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "typescript": "^5.1.3"
+  }
 }
