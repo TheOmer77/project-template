@@ -1,8 +1,12 @@
 # Project Template
 
-This is my personal full stack project template, consisting of a [React](https://reactjs.org/) frontend application run using [Vite](https://vitejs.dev/), and a [NodeJS](https://nodejs.org/) backend which uses [Express](https://expressjs.com/), both written in [TypeScript](https://www.typescriptlang.org/).
+This is my personal full stack project template, consisting of:
 
-In local development, both the frontend & backend services are run using [Docker](https://www.docker.com/), and are both accessible from an [NGINX](https://www.nginx.com/) reverse proxy; Additional services & environment variables can be added in `docker-compose.yml`.
+- A frontend app, which uses [React](https://reactjs.org/) and is bundled by [Vite](https://vitejs.dev/).
+- A backend server, powered by [NodeJS](https://nodejs.org/) and [Express](https://expressjs.com/).
+- An [NGINX](https://www.nginx.com/) reverse proxy.
+
+Both the frontend & backend services are written in [TypeScript](https://www.typescriptlang.org/). All services are run with [Docker](https://www.docker.com/), additional services & environment variables can be added in `docker-compose.yml`.
 
 Additionally, this template includes a [Prettier](https://prettier.io/) `.prettierrc` for the entire project, as well as an [ESLint](https://eslint.org/) `.eslintrc.json` for both the frontend & the backend. Installing the relevant VSCode extensions is recommended.
 
