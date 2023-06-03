@@ -5,7 +5,7 @@ ARG SERVICE_NAME
 ENV SERVICE_NAME=${SERVICE_NAME}
 
 WORKDIR /app
-COPY package*.json ./
+COPY package*.json .eslintrc.json .prettierrc ./
 COPY ./services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
 RUN npm install
 
