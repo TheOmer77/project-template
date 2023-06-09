@@ -15,7 +15,11 @@
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true,
-        "project": ["services/*/tsconfig.json", "packages/*/tsconfig.json"]
+        "project": [
+          "tsconfig.json",
+          "services/*/tsconfig.json",
+          "packages/*/tsconfig.json"
+        ]
       }
     }
   }
