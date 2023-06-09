@@ -1,15 +1,6 @@
 version: '3.8'
 
 services:
-  nginx:
-    depends_on:
-      - backend
-      - frontend
-    restart: always
-    build: ./services/nginx
-    ports:
-      - '80:80'
-
   frontend:
     build:
       dockerfile: ./services/frontend/Dockerfile
@@ -42,3 +33,12 @@ services:
       - ./packages:/app/packages
     environment:
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
+
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+    restart: always
+    build: ./services/nginx
+    ports:
+      - '80:80'
