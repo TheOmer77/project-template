@@ -1,6 +1,6 @@
 # This script runs an NPM script for every package in parallel, prefixing the
-# stdout of each stdout with the package's directory name and fail the script
-# if one of the commands exits with a code != 0
+# stdout of each stdout with the package's directory name, and fails if one of
+# the commands exits with a code != 0
 # Based on: https://gist.github.com/wndhydrnt/3be3cd4552ec356f98e7497b0d4a426c
 
 #!/bin/sh
