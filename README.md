@@ -86,17 +86,3 @@ To fix it, you could either:
 
 - **Recommended:** Move the project folder outside of a Windows filesystem (into your WSL distro), and use WSL2 applications to edit your files. Accessing the Windows filesystem from WSL2 is slow, so doing this will improve performance.
 - Add `CHOKIDAR_USEPOLLING=true` to your `.env` file. Note that this [leads to high CPU utilization](https://github.com/paulmillr/chokidar#performance).
-
-#### Cannot run `npm install` outside of containers
-
-On Linux, you may see an empty `node_modules` folder created after building the services; If you then try to run `npm install` in either service, you could encounter a "permission denied" error.
-
-This happens because, for some reason, Docker creates that empty `node_modules` folder which is **owned by root.**
-
-To fix this, either change the owner of this `node_modules` folder to yourself, using:
-
-```sh
-sudo chown user:user node_modules
-```
-
-where `user` is your username, or simply delete that folder and then run `npm install` again, which will recreate it.
