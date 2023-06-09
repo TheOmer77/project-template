@@ -11,7 +11,7 @@ services:
       - ./packages/some-package/dist:/app/packages/some-package/dist
     environment:
       - VITE_BACKEND_URL=/api
-      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
   backend:
     build:
@@ -23,7 +23,7 @@ services:
       - ./services/backend:/app/services/backend
       - ./packages/some-package/dist:/app/packages/some-package/dist
     environment:
-      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
   package-builder:
     build:
@@ -32,7 +32,7 @@ services:
     volumes:
       - ./packages:/app/packages
     environment:
-      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
   nginx:
     depends_on:
