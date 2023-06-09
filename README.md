@@ -2,15 +2,24 @@
 
 This is my personal full stack project template, consisting of:
 
-- A frontend app, which uses [React](https://reactjs.org/) and is bundled by [Vite](https://vitejs.dev/).
-- A backend server, powered by [NodeJS](https://nodejs.org/) and [Express](https://expressjs.com/).
-- An [NGINX](https://www.nginx.com/) reverse proxy.
+- A frontend app, which uses React and is bundled by Vite.
+- A backend server, powered by Node.js and Express.
+- A package for shared code between the above two services, and a service that automatically rebuilds it on changes.
+- An NGINX reverse proxy.
 
-Both the frontend & backend services are written in [TypeScript](https://www.typescriptlang.org/). All services are run with [Docker](https://www.docker.com/), additional services & environment variables can be added in `docker-compose.yml`.
+Other technologies used in the entire project include TypeScript for the frontend, backend and package, and Docker which runs all services.
+Additionally, this template includes a Prettier `.prettierrc` and an ESLint `.eslintrc.json` for the entire project, as well as an `.eslintrc` specific to the frontend. Installing the relevant VSCode extensions is recommended.
 
-Additionally, this template includes a [Prettier](https://prettier.io/) `.prettierrc` for the entire project, as well as an [ESLint](https://eslint.org/) `.eslintrc.json` for both the frontend & the backend. Installing the relevant VSCode extensions is recommended.
+Additional services & environment variables can be added in `docker-compose.yml`.
 
 ## Local development
+
+### Prerequisites
+
+- [NodeJS](https://nodejs.org/) 18
+- [Docker](https://www.docker.com/)
+
+### Running the services
 
 Run the project using Docker Compose:
 
@@ -20,42 +29,52 @@ docker compose up -d
 
 Then just open [http://localhost](http://localhost) (port 80) in your web browser to access the frontend React app; the backend can be accessed from [http://localhost/api](http://localhost/api).
 
-Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server (using `nodemon`) to restart.
+Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server (using `nodemon`) to restart. Both services will react to changes made to the package.
 
 ### Installing dependencies
 
-To install dependencies in a service, run:
+- To install dependencies in a service, run:
 
-```bash
-npm i -w <service> <dependencies>
-```
+  ```bash
+  npm i -w services/<service> <dependencies>
+  ```
 
-Note that you will have to rebuild the service you have installed dependencies in.
+  To install in a package, it's very similar:
 
-```bash
-docker builder prune -af
-docker compose up -d --build <service>
-```
+  ```bash
+  npm i -w packages/<package> <dependencies>
+  ```
+
+- Rebuild the service you have installed dependencies in. If dependencies were installed in the package, rebuild both the frontend, backend & package builder.
+
+  ```bash
+  docker builder prune -af
+  docker compose up -d --build <services>
+  ```
 
 ### Updating environment variables
 
-Environment variables for the entire project are stored in the `.env` file. After editing this file, the new variables will not be applied until you recreate the services that use them:
+Environment variables for the entire project are stored in the `.env` file. After editing this file:
 
-```bash
-docker compose up -d --force-recreate <services>
-```
+- If any new variables were added, add them to the relevant services in `docker-compose.yml`:
 
-Note that if you add new variables to `.env`, you will have to add them to the appropriate services in `docker-compose.yml` **before you recreate the services.** Also note, that the frontend will only recognize variables starting with `VITE_` (this prefix can be changed).
+  > Note that frontend variables have to be prefixed with `VITE_` (this prefix can be changed).
 
-```yml
-frontend:
-  environment:
-    - VITE_ENV_VAR=${ENV_VAR}
+  ```yml
+  frontend:
+    environment:
+      - VITE_ENV_VAR=${ENV_VAR}
 
-backend:
-  environment:
-    - ENV_VAR=${ENV_VAR}
-```
+  backend:
+    environment:
+      - ENV_VAR=${ENV_VAR}
+  ```
+
+- Recreate the relevant services:
+
+  ```bash
+  docker compose up -d --force-recreate <services>
+  ```
 
 ### Troubleshooting
 
