@@ -17,6 +17,7 @@ services:
     volumes:
       - ./services/frontend:/app/services/frontend
       - /app/services/frontend/node_modules # Vite cache
+      - ./packages/some-package/dist:/app/packages/some-package/dist
     environment:
       - VITE_BACKEND_URL=/api
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
