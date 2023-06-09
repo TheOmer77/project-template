@@ -12,6 +12,11 @@
   "plugins": ["@typescript-eslint"],
   "settings": {
     "import/parsers": { "@typescript-eslint/parser": [".ts", ".tsx"] },
-    "import/resolver": { "typescript": { "alwaysTryTypes": true } }
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": ["services/*/tsconfig.json", "packages/*/tsconfig.json"]
+      }
+    }
   }
 }

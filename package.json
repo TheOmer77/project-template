@@ -20,6 +20,7 @@
     "esbuild-plugin-eslint": "^0.3.6",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "patch-package": "^7.0.0",
     "prettier": "^2.8.8",
