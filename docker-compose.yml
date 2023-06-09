@@ -33,3 +33,12 @@ services:
       - ./packages/some-package/dist:/app/packages/some-package/dist
     environment:
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
+
+  package-builder:
+    build:
+      dockerfile: ./services/package-builder/Dockerfile
+      context: .
+    volumes:
+      - ./packages:/app/packages
+    environment:
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
