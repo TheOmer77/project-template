@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { HELLO_WORLD } from '@theomer77/some-package';
+
 const testBackend = async (): Promise<string> => {
   try {
     const res = await fetch(import.meta.env.VITE_BACKEND_URL);
@@ -14,7 +16,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>App</h1>
+      <h1>{HELLO_WORLD}</h1>
       <button onClick={() => testBackend().then(setBackendRes)}>
         Test connection to backend
       </button>
