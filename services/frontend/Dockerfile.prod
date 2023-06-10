@@ -1,6 +1,6 @@
 ARG SERVICE_NAME=frontend
 
-FROM node:18.16.0-alpine3.17 as builder
+FROM node:18.16.0-alpine3.18 as builder
 ARG SERVICE_NAME
 
 WORKDIR /app
