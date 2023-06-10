@@ -23,4 +23,4 @@ RUN npm install
 RUN mkdir /app/node_modules/.vite && \
   chown -R node:node /app/node_modules/.vite
 
-CMD ["npm", "run", "dev", "-w", "${SERVICE_NAME}"]
+CMD ["npm", "-w", "services/${SERVICE_NAME}", "run", "dev"]
