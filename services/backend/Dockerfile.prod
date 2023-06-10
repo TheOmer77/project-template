@@ -22,12 +22,7 @@ ENV NODE_ENV=production
 ENV PORT=80
 
 WORKDIR /app
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/services/${SERVICE_NAME}/package.json \
-  /app/services/${SERVICE_NAME}/tsconfig.json ./services/${SERVICE_NAME}/
-RUN npm ci --omit=dev
-
-COPY --from=builder /app/services/${SERVICE_NAME}/dist ./services/${SERVICE_NAME}/dist/
+COPY --from=builder /app/services/${SERVICE_NAME}/dist ./dist
 
 EXPOSE 80
-CMD ["npm", "start", "-w", "services/${SERVICE_NAME}"]
+CMD ["node", "dist/index.js"]

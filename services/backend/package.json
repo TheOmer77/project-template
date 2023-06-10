@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon",
-    "build": "npm run lint && tsc",
-    "lint": "tsc --noEmit && eslint --max-warnings=0 src"
+    "build": "npm run lint -s && node ./build.mjs",
+    "lint": "tsc && eslint --max-warnings=0 src"
   },
   "dependencies": {
     "@theomer77/some-package": "^1.0.0",
