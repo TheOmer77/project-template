@@ -19,4 +19,4 @@ WORKDIR /app
 COPY --from=base /app ./
 RUN npm install
 
-CMD ["npm", "run", "dev", "-w", "${SERVICE_NAME}"]
+CMD ["npm", "-w", "services/${SERVICE_NAME}", "run", "dev"]
