@@ -6,7 +6,7 @@
   "license": "ISC",
   "private": true,
   "scripts": {
-    "postinstall": "patch-package"
+    "postinstall": "[ \"$NODE_ENV\" = production ] && exit 0; patch-package"
   },
   "workspaces": [
     "services/*",
