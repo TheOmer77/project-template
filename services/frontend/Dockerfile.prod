@@ -11,7 +11,8 @@ COPY ./services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
 RUN npm ci
 
 COPY ./services/$SERVICE_NAME services/$SERVICE_NAME
-RUN npm run build -w services/${SERVICE_NAME}
+RUN ./packages/run-all.sh build && \
+  npm run build -w services/${SERVICE_NAME}
 
 FROM nginx:1.23.3-alpine
 ARG SERVICE_NAME
