@@ -1,7 +1,7 @@
 FROM node:18.16.0-alpine3.18 as base
 
 WORKDIR /app
-COPY package*.json .eslintrc.json .prettierrc ./
+COPY package*.json tsconfig.json .eslintrc.json .prettierrc ./
 COPY patches patches
 COPY packages/run-all.sh packages/run-all.sh
 
