@@ -5,7 +5,7 @@ ARG SERVICE_NAME
 ENV SERVICE_NAME ${SERVICE_NAME}
 
 WORKDIR /app
-COPY package*.json .eslintrc.json .prettierrc ./
+COPY package*.json tsconfig.json .eslintrc.json .prettierrc ./
 COPY patches patches
 COPY packages packages
 COPY services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
