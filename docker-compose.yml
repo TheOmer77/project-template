@@ -3,7 +3,7 @@ version: '3.8'
 services:
   frontend:
     build:
-      dockerfile: ./services/frontend/Dockerfile
+      dockerfile: ./services/frontend/Dockerfile.dev
       context: .
     volumes:
       - ./services/frontend:/app/services/frontend
@@ -15,7 +15,7 @@ services:
 
   backend:
     build:
-      dockerfile: ./services/backend/Dockerfile
+      dockerfile: ./services/backend/Dockerfile.dev
       context: .
     ports:
       - '9229:9229'
@@ -27,7 +27,7 @@ services:
 
   package-builder:
     build:
-      dockerfile: ./services/package-builder/Dockerfile
+      dockerfile: ./services/package-builder/Dockerfile.dev
       context: .
     volumes:
       - ./packages:/app/packages
