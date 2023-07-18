@@ -19,4 +19,5 @@ export default defineConfig({
     host: true,
     hmr: { clientPort: 80, protocol: 'ws', host: 'localhost' },
   },
+  cacheDir: '../../node_modules/.vite',
 });
