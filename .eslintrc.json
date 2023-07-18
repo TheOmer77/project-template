@@ -22,5 +22,12 @@
         ]
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.{j,t}s?(x)"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended", "prettier"]
+    }
+  ]
 }
