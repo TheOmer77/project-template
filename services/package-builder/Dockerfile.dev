@@ -11,4 +11,5 @@ WORKDIR /app
 COPY --from=base /app ./
 RUN npm install
 
+USER node
 CMD ["./packages/run-all.sh", "build:watch"]
