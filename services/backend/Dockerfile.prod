@@ -12,7 +12,8 @@ RUN npm ci
 
 COPY ./services/$SERVICE_NAME services/$SERVICE_NAME
 RUN ./packages/run-all.sh build && \
-  npm run build -w services/${SERVICE_NAME}
+  npm run build -w services/${SERVICE_NAME} && \
+  find ./packages -mindepth 2 \( ! -name 'package.json' -a ! -path '*/dist/*' \) -delete 2>/dev/null
 
 FROM node:18.16.1-alpine3.18
 ARG SERVICE_NAME
@@ -23,8 +24,14 @@ ENV NODE_ENV=production
 ENV PORT=80
 
 WORKDIR /app
-COPY --from=builder --chown=node:node /app/services/${SERVICE_NAME}/dist ./dist
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/packages packages
+COPY --from=builder /app/services/${SERVICE_NAME}/package.json \
+  ./services/${SERVICE_NAME}/
+RUN npm ci --omit=dev --ignore-scripts
+
+COPY --from=builder --chown=node:node /app/services/${SERVICE_NAME}/dist ./services/${SERVICE_NAME}/dist/
 
 EXPOSE 80
 USER node
-CMD ["node", "dist/index.js"]
+CMD ["npm", "-w", "services/${SERVICE_NAME}", "start"]
