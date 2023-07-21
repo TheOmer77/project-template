@@ -1,4 +1,5 @@
 ARG SERVICE_NAME=backend
+ARG PORT=80
 
 FROM node:18.16.1-alpine3.18 as builder
 ARG SERVICE_NAME
@@ -17,11 +18,12 @@ RUN ./packages/run-all.sh build && \
 
 FROM node:18.16.1-alpine3.18
 ARG SERVICE_NAME
+ARG PORT
 
 ENV SERVICE_NAME=${SERVICE_NAME}
+ENV PORT=${PORT}
 ENV NODE_PATH=dist/
 ENV NODE_ENV=production
-ENV PORT=80
 
 WORKDIR /app
 COPY --from=builder /app/package*.json ./
@@ -32,6 +34,6 @@ RUN npm ci --omit=dev --ignore-scripts
 
 COPY --from=builder --chown=node:node /app/services/${SERVICE_NAME}/dist ./services/${SERVICE_NAME}/dist/
 
-EXPOSE 80
+EXPOSE $PORT
 USER node
 CMD ["npm", "-w", "services/${SERVICE_NAME}", "start"]
