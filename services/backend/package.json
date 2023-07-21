@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon",
-    "build": "npm run lint -s && etsc",
+    "build": "npm run lint -s && etsc --config=etsc.config.mjs",
     "lint": "tsc && eslint --max-warnings=0 src"
   },
   "dependencies": {
