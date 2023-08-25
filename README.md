@@ -58,7 +58,7 @@ Environment variables for the entire project are stored in the `.env` file. Afte
 
 - If any new variables were added, add them to the relevant services in `docker-compose.yml`:
 
-  > Note that frontend variables have to be prefixed with `VITE_` (this prefix can be changed).
+  > Note that frontend variables have to be prefixed with `VITE_` ([this prefix can be changed](https://vitejs.dev/config/shared-options.html#envprefix)).
 
   ```yml
   frontend:
