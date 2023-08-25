@@ -6,3 +6,6 @@ updates:
       interval: 'weekly'
     commit-message:
       prefix: 'Deps'
+    groups:
+      dev-dependencies:
+        dependency-type: 'development'
