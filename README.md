@@ -31,27 +31,6 @@ Then just open [http://localhost](http://localhost) (port 80) in your web browse
 
 Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server (using `nodemon`) to restart. Both services will react to changes made to the package.
 
-### Installing dependencies
-
-- To install dependencies in a service, run:
-
-  ```bash
-  npm i -w services/<service> <dependencies>
-  ```
-
-  To install in a package, it's very similar:
-
-  ```bash
-  npm i -w packages/<package> <dependencies>
-  ```
-
-- Rebuild the service you have installed dependencies in. If dependencies were installed in the package, rebuild both the frontend, backend & package builder.
-
-  ```bash
-  docker builder prune -af
-  docker compose up -d --build <services>
-  ```
-
 ### Updating environment variables
 
 Environment variables for the entire project are stored in the `.env` file. After editing this file:
@@ -76,6 +55,29 @@ Environment variables for the entire project are stored in the `.env` file. Afte
   ```bash
   docker compose up -d --force-recreate <services>
   ```
+
+### Installing & updating dependencies
+
+To install dependencies in a service, run:
+
+```bash
+npm i -w services/<service> <dependencies>
+```
+
+To install in a package, it's very similar:
+
+```bash
+npm i -w packages/<package> <dependencies>
+```
+
+To install dependencies for the entire project (usually dev dependencies), the `-w` flag is not needed.
+
+After dependency updates, rebuild the relevant services. If dependencies were installed in a package, rebuild all services that use it & the package builder.
+
+```bash
+docker builder prune -af
+docker compose up -d --build <services>
+```
 
 ### Troubleshooting
 
