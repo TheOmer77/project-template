@@ -79,6 +79,12 @@ docker builder prune -af
 docker compose up -d --build <services>
 ```
 
+#### Patching packages
+
+This template includes `patch-package`, which can be used to patch dependencies if needed; Any patch files made are located in the project's patches directory. \
+After updating a dependency version, rename its patch file & make sure the package is still patched correctly. \
+[Learn more about usage](https://github.com/ds300/patch-package#usage)
+
 ### Troubleshooting
 
 #### No HMR/server not restarting when making changes
