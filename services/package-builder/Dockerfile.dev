@@ -1,4 +1,4 @@
-FROM node:18.17.0-alpine3.18 as base
+FROM node:18.17.1-alpine3.18 as base
 
 WORKDIR /app
 COPY package*.json tsconfig.json .eslintrc.json .prettierrc ./
@@ -6,7 +6,7 @@ COPY patches patches
 COPY packages packages
 RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 
-FROM node:18.17.0-alpine3.18
+FROM node:18.17.1-alpine3.18
 
 WORKDIR /app
 COPY --from=base /app ./
