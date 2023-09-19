@@ -1,11 +1,11 @@
 diff --git a/node_modules/@types/node/constants.d.ts b/node_modules/@types/node/constants.d.ts
-deleted file mode 100755
-index 208020d..0000000
+deleted file mode 100644
+index d70cf3f..0000000
 --- a/node_modules/@types/node/constants.d.ts
 +++ /dev/null
 @@ -1,18 +0,0 @@
 -/** @deprecated since v6.3.0 - use constants property exposed by the relevant module instead. */
--declare module 'constants' {
+-declare module 'node:constants' {
 -    import { constants as osConstants, SignalConstants } from 'node:os';
 -    import { constants as cryptoConstants } from 'node:crypto';
 -    import { constants as fsConstants } from 'node:fs';
@@ -18,18 +18,18 @@ index 208020d..0000000
 -    export = exp;
 -}
 -
--declare module 'node:constants' {
--    import constants = require('constants');
+-declare module 'constants' {
+-    import constants = require('node:constants');
 -    export = constants;
 -}
 diff --git a/node_modules/@types/node/ts4.8/constants.d.ts b/node_modules/@types/node/ts4.8/constants.d.ts
-deleted file mode 100755
-index 208020d..0000000
+deleted file mode 100644
+index d70cf3f..0000000
 --- a/node_modules/@types/node/ts4.8/constants.d.ts
 +++ /dev/null
 @@ -1,18 +0,0 @@
 -/** @deprecated since v6.3.0 - use constants property exposed by the relevant module instead. */
--declare module 'constants' {
+-declare module 'node:constants' {
 -    import { constants as osConstants, SignalConstants } from 'node:os';
 -    import { constants as cryptoConstants } from 'node:crypto';
 -    import { constants as fsConstants } from 'node:fs';
@@ -42,7 +42,7 @@ index 208020d..0000000
 -    export = exp;
 -}
 -
--declare module 'node:constants' {
--    import constants = require('constants');
+-declare module 'constants' {
+-    import constants = require('node:constants');
 -    export = constants;
 -}
