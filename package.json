@@ -37,7 +37,7 @@
     "patch-package": "^8.0.0",
     "prettier": "^3.0.3",
     "tsc-alias": "^1.8.8",
-    "tsup": "^7.2.0",
+    "tsup": "^8.0.0",
     "tsx": "^3.14.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
