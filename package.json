@@ -1,7 +1,7 @@
 {
   "name": "project-template",
   "version": "1.0.0",
-  "description": "This is my personal full stack project template, consisting of a [React](https://reactjs.org/) frontend application run using [Vite](https://vitejs.dev/), and a [NodeJS](https://nodejs.org/) backend which uses [Express](https://expressjs.com/), both written in [TypeScript](https://www.typescriptlang.org/).",
+  "description": "My personal full stack project template, consisting of a React frontend app, and an Express backend.",
   "author": "TheOmer77",
   "license": "ISC",
   "private": true,
