@@ -2,7 +2,6 @@ FROM node:20.11.0-alpine3.19 as base
 
 WORKDIR /app
 COPY package*.json tsconfig.json .eslintrc.json .prettierrc ./
-COPY patches patches
 COPY packages packages
 RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 
