@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": { "baseUrl": "src", "module": "CommonJS" },
-  "include": ["src"]
+  "compilerOptions": { "paths": { "@/*": ["./src/*"] }, "module": "CommonJS" },
+  "include": ["src"],
 }
