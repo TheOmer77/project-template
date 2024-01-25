@@ -16,7 +16,7 @@ Additional services & environment variables can be added in `docker-compose.yml`
 
 ### Prerequisites
 
-- [NodeJS](https://nodejs.org/) 18
+- [Node.js](https://nodejs.org/) 20
 - [Docker](https://www.docker.com/)
 
 ### Running the services
