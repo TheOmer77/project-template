@@ -6,10 +6,6 @@
   "license": "ISC",
   "private": true,
   "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f",
-  "workspaces": [
-    "services/*",
-    "packages/*"
-  ],
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
