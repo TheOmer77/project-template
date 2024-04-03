@@ -1,7 +1,7 @@
 ARG SERVICE_NAME=backend
 ARG PORT=80
 
-FROM node:20.11.0-alpine3.19 as builder
+FROM node:20.12.0-alpine3.19 as builder
 ARG SERVICE_NAME
 
 WORKDIR /app
@@ -15,7 +15,7 @@ RUN ./packages/run-all.sh build && \
   npm run build -w services/${SERVICE_NAME} && \
   find ./packages -mindepth 2 \( ! -name 'package.json' -a ! -path '*/dist/*' \) -delete 2>/dev/null
 
-FROM node:20.11.0-alpine3.19
+FROM node:20.12.0-alpine3.19
 ARG SERVICE_NAME
 ARG PORT
 
