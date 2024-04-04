@@ -4,7 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "nodemon",
+    "dev": "tsx watch --inspect=0.0.0.0 src/index.ts",
     "build": "pnpm --silent run lint && etsc --config=etsc.config.mjs",
     "lint": "tsc && eslint --max-warnings=0 src"
   },
