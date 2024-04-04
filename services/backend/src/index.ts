@@ -1,14 +1,13 @@
-import express, { json } from 'express';
-import cors from 'cors';
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
 
 import router from '@/routes';
 
-const PORT = process.env.PORT || 8000;
+const app = new Hono();
 
-const app = express();
+app.route('/', router);
 
-app.use(json());
-app.use(cors());
-app.use(router);
-
-app.listen(PORT, () => console.info(`Backend is running on port ${PORT}.`));
+serve(
+  { fetch: app.fetch, port: Number(process.env.PORT) || 8000 },
+  ({ port }) => console.info(`Backend is running on port ${port}.`),
+);
