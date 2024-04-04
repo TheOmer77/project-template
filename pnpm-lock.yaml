@@ -29,9 +29,6 @@ importers:
       esbuild:
         specifier: ^0.20.2
         version: 0.20.2
-      esbuild-node-tsc:
-        specifier: ^2.0.5
-        version: 2.0.5(esbuild@0.20.2)(typescript@5.4.3)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -2603,18 +2600,6 @@ packages:
       is-callable: 1.2.7
       is-date-object: 1.0.5
       is-symbol: 1.0.4
-    dev: true
-
-  /esbuild-node-tsc@2.0.5(esbuild@0.20.2)(typescript@5.4.3):
-    resolution: {integrity: sha512-FPHgaamMLJ6nfx4+p+2pF9deu/yfhTitYqf/xsjFnVDQeWEpBo78uiAp9UoCXY29noamXipAWMmMo6suBvjQQw==}
-    hasBin: true
-    peerDependencies:
-      esbuild: '>=0.13.0'
-      typescript: '*'
-    dependencies:
-      esbuild: 0.20.2
-      typescript: 5.4.3
-      yargs: 17.7.2
     dev: true
 
   /esbuild@0.19.12:
