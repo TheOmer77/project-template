@@ -5,14 +5,15 @@ FROM node:20.12.0-alpine3.19 as builder
 ARG SERVICE_NAME
 
 WORKDIR /app
-COPY package*.json tsconfig.json .eslintrc.json .prettierrc ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json \
+  .eslintrc.json .prettierrc ./
 COPY packages packages
 COPY ./services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
-RUN npm ci
+RUN corepack enable pnpm && pnpm install --frozen-lockfile
 
 COPY ./services/$SERVICE_NAME services/$SERVICE_NAME
 RUN ./packages/run-all.sh build && \
-  npm run build -w services/${SERVICE_NAME}
+  pnpm -F ${SERVICE_NAME} run build
 
 FROM nginx:1.25.4-alpine3.18
 ARG SERVICE_NAME
