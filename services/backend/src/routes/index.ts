@@ -3,7 +3,7 @@ import { HELLO_WORLD } from '@theomer77/some-package';
 
 const router = Router();
 
-router.get('/', (req, res) => {
+router.get('/', (_req, res) => {
   res.json({ success: true, message: HELLO_WORLD });
 });
 
