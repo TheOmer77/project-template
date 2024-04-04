@@ -19,7 +19,7 @@ for PACKAGE in $PACKAGES; do
   # 'sh -eo pipefail -c' allows for capturing the correct exit code.
   # It is needed because the output of ./program.sh is piped through awk to prefix the output.
   # The pipe makes the line to always exit with a code of 0 because 'awk' always succeeds without -o pipefail.
-  sh -eo pipefail -c "pnpm -s -F $PACKAGE run $1 | awk '{print \"[${PACKAGE}] \"\$0}'" &
+  sh -eo pipefail -c "pnpm --silent -F $PACKAGE run $1 | awk '{print \"[${PACKAGE}] \"\$0}'" &
   pids="${pids} $!"
 done
 
