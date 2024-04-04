@@ -5,10 +5,12 @@ ARG SERVICE_NAME
 ENV SERVICE_NAME ${SERVICE_NAME}
 
 WORKDIR /app
-COPY package*.json tsconfig.json .eslintrc.json .prettierrc ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json \
+  .eslintrc.json .prettierrc ./
 COPY packages packages
 COPY services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
-RUN find packages \! -name "package.json" -mindepth 2 -maxdepth 2 -print | xargs rm -rf
+RUN find packages \! -name "package.json" -mindepth 2 -maxdepth 2 -print | \
+  xargs rm -rf
 
 FROM node:20.12.0-alpine3.19
 ARG SERVICE_NAME
@@ -16,7 +18,7 @@ ENV SERVICE_NAME ${SERVICE_NAME}
 
 WORKDIR /app
 COPY --from=base /app ./
-RUN npm install
+RUN corepack enable pnpm && pnpm install
 
 USER node
-CMD ["npm", "-w", "services/${SERVICE_NAME}", "run", "dev"]
+CMD pnpm -F ${SERVICE_NAME} run dev

@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "build": "npm run lint -s && tsup",
+    "build": "pnpm --silent run lint && tsup",
     "build:watch": "tsup --watch",
     "lint": "tsc && eslint --max-warnings=0 src"
   }
