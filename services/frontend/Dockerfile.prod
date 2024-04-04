@@ -14,7 +14,7 @@ COPY ./services/$SERVICE_NAME services/$SERVICE_NAME
 RUN ./packages/run-all.sh build && \
   npm run build -w services/${SERVICE_NAME}
 
-FROM nginx:1.25.3-alpine3.18
+FROM nginx:1.25.4-alpine3.18
 ARG SERVICE_NAME
 ARG PORT
 
