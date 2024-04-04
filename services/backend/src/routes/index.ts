@@ -1,10 +1,8 @@
-import { Router } from 'express';
+import { Hono } from 'hono';
 import { HELLO_WORLD } from '@theomer77/some-package';
 
-const router = Router();
+const router = new Hono();
 
-router.get('/', (_req, res) => {
-  res.json({ success: true, message: HELLO_WORLD });
-});
+router.get('/', ctx => ctx.json({ success: true, message: HELLO_WORLD }));
 
 export default router;
