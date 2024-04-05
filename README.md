@@ -17,6 +17,7 @@ Additional services & environment variables can be added in `docker-compose.yml`
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) 20
+- [PNPM](https://pnpm.io/)
 - [Docker](https://www.docker.com/)
 
 ### Running the services
@@ -57,19 +58,13 @@ Environment variables for the entire project are stored in the `.env` file. Afte
 
 ### Installing & updating dependencies
 
-To install dependencies in a service, run:
+To install dependencies in a service or package, run:
 
 ```bash
-npm i -w services/<service> <dependencies>
+pnpm -F <service> i <dependencies>
 ```
 
-To install in a package, it's very similar:
-
-```bash
-npm i -w packages/<package> <dependencies>
-```
-
-To install dependencies for the entire project (usually dev dependencies), the `-w` flag is not needed.
+To install dependencies for the entire project (usually dev dependencies), the `-F` flag is not needed.
 
 After dependency updates, rebuild the relevant services. If dependencies were installed in a package, rebuild all services that use it & the package builder.
 
