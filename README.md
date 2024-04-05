@@ -3,7 +3,7 @@
 This is my personal full stack project template, consisting of:
 
 - A frontend app, which uses React and is bundled by Vite.
-- A backend server, powered by Node.js and Express.
+- A backend server, powered by Node.js and Hono.
 - A package for shared code between services, and a service that automatically rebuilds it on changes.
 - An NGINX reverse proxy.
 
