@@ -1,7 +1,11 @@
 ARG SERVICE_NAME=backend
 ARG PORT=80
 
-FROM node:20.12.0-alpine3.19 as builder
+FROM node:20.12.0-alpine3.19 as base
+WORKDIR /app
+RUN corepack enable pnpm
+
+FROM base as builder
 ARG SERVICE_NAME
 
 WORKDIR /app
@@ -9,7 +13,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json \
   .eslintrc.json .prettierrc ./
 COPY packages packages
 COPY ./services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
-RUN corepack enable pnpm && pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 COPY ./services/$SERVICE_NAME services/$SERVICE_NAME
 RUN ./packages/run-all.sh build && \
@@ -17,7 +21,7 @@ RUN ./packages/run-all.sh build && \
   find ./packages -mindepth 2 \( ! -name 'package.json' -a ! -path '*/dist/*' \) \
   -delete 2>/dev/null
 
-FROM node:20.12.0-alpine3.19
+FROM base as runner
 ARG SERVICE_NAME
 ARG PORT
 
@@ -27,15 +31,11 @@ ENV NODE_PATH=dist/
 ENV NODE_ENV=production
 
 WORKDIR /app
-COPY --from=builder /app/package.json /app/pnpm-lock.yaml \ 
-  /app/pnpm-workspace.yaml ./
-COPY --from=builder /app/packages packages
+COPY --from=builder /app/pnpm-workspace.yaml ./
 COPY --from=builder /app/services/${SERVICE_NAME}/package.json \
-  ./services/${SERVICE_NAME}/
-RUN corepack enable pnpm && pnpm install --frozen-lockfile --prod
-
+  services/${SERVICE_NAME}/package.json
 COPY --from=builder --chown=node:node /app/services/${SERVICE_NAME}/dist \
-  ./services/${SERVICE_NAME}/dist/
+  services/${SERVICE_NAME}/dist
 
 EXPOSE $PORT
 USER node

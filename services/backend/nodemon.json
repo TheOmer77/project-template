@@ -1,6 +1,0 @@
-{
-  "watch": ["src", "../../packages/**/dist/"],
-  "ext": "js,ts,json",
-  "ignore": ["src/**/*.test.ts", "../../packages/**/dist/*.d.ts"],
-  "exec": "tsx --inspect=0.0.0.0 src/index.ts"
-}
