@@ -29,7 +29,7 @@ docker compose up -d
 
 Then just open [http://localhost](http://localhost) (port 80) in your web browser to access the frontend React app; the backend can be accessed from [http://localhost/api](http://localhost/api).
 
-Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server (using `nodemon`) to restart. Both services will react to changes made to the package.
+Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to the package.
 
 ### Updating environment variables
 
