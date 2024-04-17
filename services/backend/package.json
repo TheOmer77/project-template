@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.10.0",
-    "@theomer77/some-package": "^1.0.0",
+    "@theomer77/some-package": "workspace:*",
     "hono": "^4.2.4"
   }
 }
