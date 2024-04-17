@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit && eslint --max-warnings=0 src"
   },
   "dependencies": {
-    "@theomer77/some-package": "^1.0.0",
+    "@theomer77/some-package": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
