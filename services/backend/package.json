@@ -11,6 +11,6 @@
   "dependencies": {
     "@hono/node-server": "^1.11.1",
     "@theomer77/some-package": "workspace:*",
-    "hono": "^4.3.2"
+    "hono": "^4.3.6"
   }
 }
