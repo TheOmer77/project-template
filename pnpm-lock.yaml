@@ -92,8 +92,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/some-package
       hono:
-        specifier: ^4.3.6
-        version: 4.3.6
+        specifier: ^4.3.8
+        version: 4.3.8
 
   services/frontend:
     dependencies:
@@ -1959,8 +1959,8 @@ packages:
     resolution: {integrity: sha512-1/th4MHjnwncwXsIW6QMzlvYL9kG5e/CpVvLRZe4XPa8TOUNbCELqmvhDmnkNsAjwaG4+I8gJJL0JBvTTLO9qA==}
     engines: {node: '>= 0.4'}
 
-  hono@4.3.6:
-    resolution: {integrity: sha512-2IqXwrxWF4tG2AR7b5tMYn+KEnWK8UvdC/NUSbOKWj/Kj11OJqel58FxyiXLK5CcKLiL8aGtTe4lkBKXyaHMBQ==}
+  hono@4.3.8:
+    resolution: {integrity: sha512-IepU1cWz7oWY/os4Dbgq8dAjQh+APbS0LvLf85bL3cnh4sqMZ1MSBCYFkpm+MIpGoRUMmX8v9CeQh+TmBX3RUA==}
     engines: {node: '>=16.0.0'}
 
   html-escaper@2.0.2:
@@ -5170,7 +5170,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.3.6: {}
+  hono@4.3.8: {}
 
   html-escaper@2.0.2: {}
 
