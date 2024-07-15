@@ -1,6 +1,6 @@
 ARG SERVICE_NAME=backend
 
-FROM node:20.15.1-alpine3.20 as base
+FROM node:20.15.1-alpine3.20 AS base
 ARG SERVICE_NAME
 ENV SERVICE_NAME ${SERVICE_NAME}
 
