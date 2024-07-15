@@ -1,11 +1,11 @@
 ARG SERVICE_NAME=backend
 ARG PORT=80
 
-FROM node:20.15.1-alpine3.20 as base
+FROM node:20.15.1-alpine3.20 AS base
 WORKDIR /app
 RUN corepack enable pnpm
 
-FROM base as builder
+FROM base AS builder
 ARG SERVICE_NAME
 
 WORKDIR /app
@@ -21,7 +21,7 @@ RUN ./packages/run-all.sh build && \
   find ./packages -mindepth 2 \( ! -name 'package.json' -a ! -path '*/dist/*' \) \
   -delete 2>/dev/null
 
-FROM base as runner
+FROM base AS runner
 ARG SERVICE_NAME
 ARG PORT
 
