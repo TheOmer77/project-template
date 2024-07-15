@@ -1,4 +1,4 @@
-FROM node:20.14.0-alpine3.20 as base
+FROM node:20.15.1-alpine3.20 as base
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json \
@@ -6,7 +6,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json \
 COPY packages packages
 RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 
-FROM node:20.14.0-alpine3.20
+FROM node:20.15.1-alpine3.20
 
 WORKDIR /app
 COPY --from=base /app ./
