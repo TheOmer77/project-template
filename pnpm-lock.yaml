@@ -92,7 +92,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/some-package
       hono:
-        specifier: ^4.4.12
+        specifier: ^4.4.13
         version: 4.4.13
 
   services/frontend:
