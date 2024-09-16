@@ -86,8 +86,8 @@ importers:
   services/backend:
     dependencies:
       '@hono/node-server':
-        specifier: ^1.12.2
-        version: 1.12.2(hono@4.5.11)
+        specifier: ^1.13.0
+        version: 1.13.0(hono@4.5.11)
       '@theomer77/some-package':
         specifier: workspace:*
         version: link:../../packages/some-package
@@ -592,8 +592,8 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@hono/node-server@1.12.2':
-    resolution: {integrity: sha512-xjzhqhSWUE/OhN0g3KCNVzNsQMlFUAL+/8GgPUr3TKcU7cvgZVBGswFofJ8WwGEHTqobzze1lDpGJl9ZNckDhA==}
+  '@hono/node-server@1.13.0':
+    resolution: {integrity: sha512-kz323qIQkNQElEGroo/E9MKPDuIR5pkuk/XEWd50K+cSEKdmdiYx0PKWUdaNY2ecJYngtF+njDMsMKplL6zfEg==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -3428,7 +3428,7 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@hono/node-server@1.12.2(hono@4.5.11)':
+  '@hono/node-server@1.13.0(hono@4.5.11)':
     dependencies:
       hono: 4.5.11
 
