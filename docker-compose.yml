@@ -26,7 +26,7 @@ services:
 
   package-builder:
     build:
-      dockerfile: ./services/packages/Dockerfile
+      dockerfile: ./packages/Dockerfile
       context: .
     volumes:
       - ./packages:/app/packages
