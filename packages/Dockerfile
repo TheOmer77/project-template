@@ -8,12 +8,14 @@ ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
 FROM base AS prune
 
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY packages packages
 RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 
 FROM base AS dev
 
-COPY --from=prune /app/package.json /app/pnpm-lock.yaml ./
+COPY --from=prune /app/package.json /app/pnpm-lock.yaml \
+  /app/pnpm-workspace.yaml ./
 RUN pnpm fetch
 COPY --from=prune /app .
 RUN pnpm install -r --offline
