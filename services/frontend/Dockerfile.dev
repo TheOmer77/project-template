@@ -1,6 +1,6 @@
 ARG SERVICE_NAME=frontend
 
-FROM node:20.15.1-alpine3.20 AS base
+FROM node:20.17.0-alpine3.20 AS base
 ARG SERVICE_NAME
 ENV SERVICE_NAME ${SERVICE_NAME}
 
@@ -12,7 +12,7 @@ COPY services/$SERVICE_NAME/package.json services/$SERVICE_NAME/
 RUN find packages \! -name "package.json" -mindepth 2 -maxdepth 2 -print | \
   xargs rm -rf
 
-FROM node:20.15.1-alpine3.20
+FROM node:20.17.0-alpine3.20
 ARG SERVICE_NAME
 ENV SERVICE_NAME ${SERVICE_NAME}
 

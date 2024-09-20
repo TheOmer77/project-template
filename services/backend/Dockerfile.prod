@@ -1,7 +1,7 @@
 ARG SERVICE_NAME=backend
 ARG PORT=80
 
-FROM node:20.15.1-alpine3.20 AS base
+FROM node:20.17.0-alpine3.20 AS base
 WORKDIR /app
 RUN corepack enable pnpm
 
