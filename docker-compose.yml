@@ -5,7 +5,7 @@ services:
       context: .
     volumes:
       - ./services/frontend:/app/services/frontend
-      - ./packages/some-package/dist:/app/packages/some-package/dist
+      - ./packages:/app/packages
     environment:
       - VITE_BACKEND_URL=/api
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
@@ -18,7 +18,7 @@ services:
       - '9229:9229'
     volumes:
       - ./services/backend:/app/services/backend
-      - ./packages/some-package/dist:/app/packages/some-package/dist
+      - ./packages:/app/packages
     environment:
       - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
