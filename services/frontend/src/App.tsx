@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { HELLO_WORLD } from '@theomer77/some-package';
+import { HELLO_WORLD } from '@repo/shared';
 
 const testBackend = async (): Promise<string> => {
   try {

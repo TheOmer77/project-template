@@ -91,7 +91,7 @@ importers:
       '@hono/node-server':
         specifier: ^1.13.0
         version: 1.13.0(hono@4.6.2)
-      '@theomer77/some-package':
+      '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/some-package
       hono:
@@ -100,7 +100,7 @@ importers:
 
   services/frontend:
     dependencies:
-      '@theomer77/some-package':
+      '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/some-package
       react:

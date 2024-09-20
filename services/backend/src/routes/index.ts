@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import { HELLO_WORLD } from '@theomer77/some-package';
+import { HELLO_WORLD } from '@repo/shared';
 
 const router = new Hono();
 
