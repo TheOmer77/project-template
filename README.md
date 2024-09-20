@@ -4,7 +4,7 @@ This is my personal project template, used for building full stack applications.
 
 ## About this template
 
-### What's included
+### Included apps and packages
 
 - `frontend`: A [React](https://react.dev) app, bundled by Vite.
 - `backend`: A backend server, powered by [Node.js](https://nodejs.org) and [Hono](https://hono.dev/).
@@ -12,19 +12,24 @@ This is my personal project template, used for building full stack applications.
 - `package-builder`: A service responsible for automatically rebuilding shared packages on changes (in development only).
 - An NGINX reverse proxy.
 
-All apps and packages are built using [TypeScript](https://www.typescriptlang.org/). This project uses [PNPM](https://pnpm.io/) as its package manager.
-
-### What's NOT included
-
-TODO
+All apps and packages are built using [TypeScript](https://www.typescriptlang.org/).
 
 ### Docker
 
 This project uses Docker and Docker Compose to build and run all services. Additional services & environment variables can be added in `docker-compose.yml`.
 
-### Linting and Formatting
+### Utilities
 
-This template also includes a Prettier `.prettierrc` and an ESLint `.eslintrc.json` for the entire project, as well as an `.eslintrc.json` specific to the frontend. Installing the relevant VSCode extensions is recommended.
+- [PNPM](https://pnpm.io/) as the package manager
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+Installing the relevant VSCode extensions is recommended.
+
+### What's NOT included
+
+TODO
 
 ## Local development
 
