@@ -8,15 +8,15 @@ ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
 FROM base AS prune
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json \
-  .eslintrc.json .prettierrc ./
 COPY packages packages
 RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 
 FROM base AS dev
 
-COPY --from=base /app ./
-RUN pnpm install --frozen-lockfile
+COPY --from=prune /app/package.json /app/pnpm-lock.yaml ./
+RUN pnpm fetch
+COPY --from=prune /app .
+RUN pnpm install -r --offline
 
 USER node
 CMD ["./packages/run-all.sh", "build:watch"]
