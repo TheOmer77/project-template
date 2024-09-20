@@ -19,6 +19,7 @@
   "scripts": {
     "build": "pnpm --silent run lint && tsup",
     "build:watch": "tsup --watch",
-    "lint": "tsc && eslint --max-warnings=0 src"
+    "lint": "tsc && eslint --max-warnings=0 src",
+    "clean": "rimraf dist"
   }
 }
