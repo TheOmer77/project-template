@@ -7,7 +7,7 @@ This is my personal project template, used for building full stack applications.
 ### Included apps and packages
 
 - `@repo/frontend`: A [React](https://react.dev) app, bundled by Vite.
-- `backend`: A backend server, powered by [Node.js](https://nodejs.org) and [Hono](https://hono.dev/).
+- `@repo/backend`: A backend server, powered by [Node.js](https://nodejs.org) and [Hono](https://hono.dev/).
 - `@repo/shared`: A package for shared code between services.
 - `package-builder`: A service responsible for automatically rebuilding shared packages on changes (in development only).
 - An NGINX reverse proxy.
