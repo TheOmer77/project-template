@@ -3,6 +3,7 @@
   "tasks": {
     "dev": { "persistent": true, "cache": false },
     "build": { "outputs": ["dist/**"] },
-    "lint": { "dependsOn": ["^lint"] }
+    "lint": { "dependsOn": ["^lint"] },
+    "clean": { "cache": false }
   }
 }
