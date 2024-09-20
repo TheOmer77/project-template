@@ -6,7 +6,8 @@
     "start": "node dist/index.js",
     "dev": "tsx watch --inspect=0.0.0.0 src/index.ts",
     "build": "pnpm --silent run lint && tsx build.ts",
-    "lint": "tsc && eslint --max-warnings=0 src"
+    "lint": "tsc && eslint --max-warnings=0 src",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.0",
