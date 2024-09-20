@@ -1,16 +1,30 @@
 # Project Template
 
-This is my personal full stack project template, consisting of:
+This is my personal project template, used for building full stack applications.
 
-- A frontend app, which uses React and is bundled by Vite.
-- A backend server, powered by Node.js and Hono.
-- A package for shared code between services, and a service that automatically rebuilds it on changes.
+## About this template
+
+### What's included
+
+- `frontend`: A [React](https://react.dev) app, bundled by Vite.
+- `backend`: A backend server, powered by [Node.js](https://nodejs.org) and [Hono](https://hono.dev/).
+- `@theomer77/some-package`: A package for shared code between services.
+- `package-builder`: A service responsible for automatically rebuilding shared packages on changes (in development only).
 - An NGINX reverse proxy.
 
-Other technologies used in the entire project include TypeScript for the frontend, backend and package, and Docker which runs all services. \
-This template also includes a Prettier `.prettierrc` and an ESLint `.eslintrc.json` for the entire project, as well as an `.eslintrc.json` specific to the frontend. Installing the relevant VSCode extensions is recommended.
+All apps and packages are built using [TypeScript](https://www.typescriptlang.org/). This project uses [PNPM](https://pnpm.io/) as its package manager.
 
-Additional services & environment variables can be added in `docker-compose.yml`.
+### What's NOT included
+
+TODO
+
+### Docker
+
+This project uses Docker and Docker Compose to build and run all services. Additional services & environment variables can be added in `docker-compose.yml`.
+
+### Linting and Formatting
+
+This template also includes a Prettier `.prettierrc` and an ESLint `.eslintrc.json` for the entire project, as well as an `.eslintrc.json` specific to the frontend. Installing the relevant VSCode extensions is recommended.
 
 ## Local development
 
