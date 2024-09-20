@@ -17,9 +17,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.18.0
         version: 7.18.0(eslint@8.57.1)(typescript@5.6.2)
-      esbuild:
-        specifier: ^0.23.1
-        version: 0.23.1
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -50,9 +47,6 @@ importers:
       tsup:
         specifier: ^8.3.0
         version: 8.3.0(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.2)(yaml@2.4.5)
-      tsx:
-        specifier: ^4.19.1
-        version: 4.19.1
       turbo:
         specifier: ^2.1.2
         version: 2.1.2
@@ -73,6 +67,13 @@ importers:
       hono:
         specifier: ^4.6.2
         version: 4.6.2
+    devDependencies:
+      esbuild:
+        specifier: ^0.23.1
+        version: 0.23.1
+      tsx:
+        specifier: ^4.19.1
+        version: 4.19.1
 
   services/frontend:
     dependencies:

@@ -13,5 +13,9 @@
     "@hono/node-server": "^1.13.0",
     "@repo/shared": "workspace:*",
     "hono": "^4.6.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1",
+    "tsx": "^4.19.1"
   }
 }
