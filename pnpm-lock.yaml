@@ -87,7 +87,7 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(typescript@5.6.2)(vite@5.4.6(@types/node@22.5.5))
 
-  packages/some-package: {}
+  packages/shared: {}
 
   services/backend:
     dependencies:
@@ -96,7 +96,7 @@ importers:
         version: 1.13.0(hono@4.6.2)
       '@repo/shared':
         specifier: workspace:*
-        version: link:../../packages/some-package
+        version: link:../../packages/shared
       hono:
         specifier: ^4.6.2
         version: 4.6.2
@@ -105,7 +105,7 @@ importers:
     dependencies:
       '@repo/shared':
         specifier: workspace:*
-        version: link:../../packages/some-package
+        version: link:../../packages/shared
       react:
         specifier: ^18.3.1
         version: 18.3.1
