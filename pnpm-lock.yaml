@@ -69,9 +69,18 @@ importers:
         specifier: ^4.6.2
         version: 4.6.2
     devDependencies:
+      '@types/node':
+        specifier: ^22.5.5
+        version: 22.5.5
       esbuild:
         specifier: ^0.23.1
         version: 0.23.1
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
+      tsup:
+        specifier: ^8.3.0
+        version: 8.3.0(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.2)
       tsx:
         specifier: ^4.19.1
         version: 4.19.1
@@ -81,6 +90,9 @@ importers:
       '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      hono:
+        specifier: ^4.6.2
+        version: 4.6.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -88,6 +100,12 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@repo/backend':
+        specifier: workspace:*
+        version: link:../backend
+      '@types/node':
+        specifier: ^22.5.5
+        version: 22.5.5
       '@types/react':
         specifier: ^18.3.8
         version: 18.3.8
@@ -97,6 +115,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.1
         version: 4.3.1(vite@5.4.7(@types/node@22.5.5))
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
       vite:
         specifier: ^5.4.7
         version: 5.4.7(@types/node@22.5.5)
