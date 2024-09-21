@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "tsc --noEmit && eslint --max-warnings=0 src",
+    "build": "vite build",
+    "lint": "tsc --noEmit && eslint --max-warnings 0 src",
     "clean": "rimraf dist"
   },
   "dependencies": {
