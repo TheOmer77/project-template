@@ -2,12 +2,15 @@ import { useState } from 'react';
 
 import { HELLO_WORLD } from '@repo/shared';
 
-const testBackend = async (): Promise<string> => {
+import { apiClient } from '@/lib/api-client';
+
+const testBackend = async () => {
   try {
-    const res = await fetch(import.meta.env.VITE_BACKEND_URL);
-    return JSON.stringify(await res.json(), undefined, 2);
+    const res = await apiClient.index.$get(),
+      data = await res.json();
+    return JSON.stringify(data, undefined, 2);
   } catch (err) {
-    return `Error connecting to ${import.meta.env.VITE_BACKEND_URL}:\n${err}`;
+    return `Error connecting to backend:\n${err}`;
   }
 };
 
