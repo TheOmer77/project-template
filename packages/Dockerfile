@@ -21,4 +21,4 @@ COPY --from=prune /app .
 RUN pnpm install -r --offline
 
 USER node
-CMD ["./packages/run-all.sh", "build:watch"]
+CMD ["./packages/run-all.sh", "dev"]
