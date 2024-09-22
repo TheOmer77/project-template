@@ -1,9 +1,8 @@
 FROM node:20.17.0-alpine3.20 AS base
-ENV APP_NAME=frontend
+ENV APP_NAME=backend
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV TURBO_TELEMETRY_DISABLED=1
-ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
 RUN apk add --no-cache gcompat dumb-init && corepack enable pnpm
@@ -27,9 +26,7 @@ COPY --from=prune /app/out/json/package.json \
   /app/out/json/pnpm-lock.yaml ./
 RUN pnpm fetch
 COPY --from=prune /app/out/json/ .
-RUN pnpm install -r --offline && \
-  mkdir /app/node_modules/.vite && \
-  chown -R node:node /app/node_modules/.vite
+RUN pnpm install -r --offline
 
 USER node
 CMD ["sh","-c", "pnpm turbo dev -F @repo/$APP_NAME"]
@@ -44,10 +41,10 @@ COPY --from=prune /app/out/full/ .
 RUN pnpm install -r --offline && pnpm turbo build -F @repo/$APP_NAME...
 
 # Production image - copy just build files
-FROM nginx:1.27.1-alpine3.20 AS prod
-ENV APP_NAME=frontend
+FROM base AS prod
+ENV NODE_ENV=production
 
-COPY --from=build /app/services/$APP_NAME/dist /usr/share/nginx/html
-COPY ./services/$APP_NAME/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build --chown=node:node /app/apps/$APP_NAME/dist ./dist
 
-EXPOSE 80
+USER node
+CMD ["node", "dist/index.js"]
