@@ -150,6 +150,9 @@ importers:
       '@repo/backend':
         specifier: workspace:*
         version: link:../backend
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
