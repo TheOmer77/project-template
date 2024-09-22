@@ -33,3 +33,21 @@ RUN pnpm install -r --offline && \
 
 USER node
 CMD ["sh","-c", "pnpm turbo dev -F @repo/$APP_NAME"]
+
+# Production build - install deps & build
+FROM base AS build
+
+COPY --from=prune /app/out/json/package.json \
+  /app/out/json/pnpm-lock.yaml ./
+RUN pnpm fetch
+COPY --from=prune /app/out/full/ .
+RUN pnpm install -r --offline && pnpm turbo build -F @repo/$APP_NAME...
+
+# Production image - copy just build files
+FROM nginx:1.27.1-alpine3.20 AS prod
+ENV APP_NAME=frontend
+
+COPY --from=build /app/services/$APP_NAME/dist /usr/share/nginx/html
+COPY ./services/$APP_NAME/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
