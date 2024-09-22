@@ -53,6 +53,9 @@ importers:
 
   packages/shared:
     devDependencies:
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
       '@types/node':
         specifier: ^20.11.24
         version: 20.16.5

@@ -13,6 +13,7 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
     "tsup": "^8.3.0"
