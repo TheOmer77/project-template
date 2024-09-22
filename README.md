@@ -16,7 +16,7 @@ All apps and packages are built using [TypeScript](https://www.typescriptlang.or
 
 ### Docker
 
-This project uses Docker and Docker Compose to build and run all services. Additional services & environment variables can be added in `docker-compose.yml`.
+This project uses Docker and Docker Compose to build and run all apps. Additional services & environment variables can be added in `docker-compose.yml`.
 
 ### Utilities
 
@@ -26,10 +26,6 @@ This project uses Docker and Docker Compose to build and run all services. Addit
 - [Prettier](https://prettier.io) for code formatting
 
 Installing the relevant VSCode extensions is recommended.
-
-### What's NOT included
-
-TODO
 
 ## Local development
 
