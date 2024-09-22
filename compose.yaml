@@ -10,7 +10,6 @@ services:
       - /app/apps/frontend/node_modules
     environment:
       - VITE_BACKEND_URL=/api
-      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
   backend:
     build:
@@ -23,8 +22,6 @@ services:
       - .:/app
       - /app/node_modules
       - /app/apps/backend/node_modules
-    environment:
-      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
   package-builder:
     build:
@@ -32,8 +29,6 @@ services:
       context: .
     volumes:
       - ./packages:/app/packages
-    environment:
-      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
 
   nginx:
     depends_on:
