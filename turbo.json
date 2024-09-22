@@ -3,7 +3,7 @@
   "globalEnv": ["APP_NAME", "PORT"],
   "tasks": {
     "dev": { "persistent": true, "cache": false },
-    "build": { "outputs": ["dist/**"] },
+    "build": { "dependsOn": ["^build"], "outputs": ["dist/**"] },
     "lint": { "dependsOn": ["^lint"] },
     "clean": { "cache": false }
   }
