@@ -3,19 +3,9 @@
   "description": "Package template",
   "version": "1.0.0",
   "author": "TheOmer77",
+  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "exports": {
-    "require": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "import": {
-      "types": "./dist/index.d.mts",
-      "default": "./dist/index.mjs"
-    }
-  },
   "scripts": {
     "dev": "tsup --watch",
     "build": "pnpm --silent run lint && tsup",
