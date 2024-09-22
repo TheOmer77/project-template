@@ -13,6 +13,7 @@
     "clean": "rimraf dist"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",

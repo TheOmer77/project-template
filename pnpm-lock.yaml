@@ -80,6 +80,9 @@ importers:
 
   packages/shared:
     devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
