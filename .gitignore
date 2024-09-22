@@ -37,6 +37,3 @@ lerna-debug.log*
 *.sln
 *.sw?
 *.pem
-
-# TODO: REMOVE THIS
-old
