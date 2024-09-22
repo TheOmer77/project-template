@@ -117,6 +117,9 @@ importers:
       '@repo/backend':
         specifier: workspace:*
         version: link:../backend
+      '@repo/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
       '@types/node':
         specifier: ^22.5.5
         version: 22.5.5
