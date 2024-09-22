@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": { "paths": { "@/*": ["./src/*"] } },
+  "extends": "@repo/tsconfig/base.json",
+  "compilerOptions": { "lib": ["ESNext"], "paths": { "@/*": ["./src/*"] } },
   "include": ["src"]
 }
