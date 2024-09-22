@@ -30,3 +30,21 @@ RUN pnpm install -r --offline
 
 USER node
 CMD ["sh","-c", "pnpm turbo dev -F @repo/$APP_NAME"]
+
+# Production build - install deps & build
+FROM base AS build
+
+COPY --from=prune /app/out/json/package.json \
+  /app/out/json/pnpm-lock.yaml ./
+RUN pnpm fetch
+COPY --from=prune /app/out/full/ .
+RUN pnpm install -r --offline && pnpm turbo build -F @repo/$APP_NAME...
+
+# Production image - copy just build files
+FROM base AS prod
+ENV NODE_ENV=production
+
+COPY --from=build --chown=node:node /app/services/$APP_NAME/dist ./dist
+
+USER node
+CMD ["node", "dist/index.js"]
