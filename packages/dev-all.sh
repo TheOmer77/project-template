@@ -15,7 +15,7 @@ for PKG_DIR in $PACKAGES; do
   
   PKG_NAME=$(jq -r '.name' "$PKG_DIR/package.json")
   
-  sh -eo pipefail -c "pnpm --silent --color always -F $PKG_NAME run $SCRIPT | \
+  sh -eo pipefail -c "pnpm --silent --color -F $PKG_NAME run $SCRIPT | \
   awk '{print \"${PKG_NAME}:${SCRIPT}: \"\$0}'" &
   pids="${pids} $!"
 done
