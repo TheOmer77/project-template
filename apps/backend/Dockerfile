@@ -29,7 +29,7 @@ COPY --from=prune /app/out/json/ .
 RUN pnpm install -r --offline
 
 USER node
-CMD ["sh","-c", "pnpm turbo dev -F @repo/$APP_NAME"]
+CMD ["sh", "-c", "pnpm turbo dev -F @repo/$APP_NAME"]
 
 # Production build - install deps & build
 FROM base AS build
