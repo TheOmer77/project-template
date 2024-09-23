@@ -32,7 +32,7 @@ RUN pnpm install -r --offline && \
   chown -R node:node /app/node_modules/.vite
 
 USER node
-CMD ["sh", "-c", "pnpm turbo dev -F @repo/$APP_NAME"]
+CMD ["sh", "-c", "pnpm turbo dev -F @repo/$APP_NAME --color"]
 
 # Production build - install deps & build
 FROM base AS build
