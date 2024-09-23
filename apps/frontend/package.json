@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "tsc --noEmit && eslint --max-warnings 0 src",
-    "clean": "rimraf dist"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
