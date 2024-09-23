@@ -18,4 +18,4 @@ COPY --from=prune /app .
 RUN apk add --no-cache gcompat jq && pnpm install --frozen-lockfile
 
 USER node
-CMD ["sh","-c", "./packages/run-all.sh"]
+CMD ["sh","-c", "./packages/dev-all.sh"]
