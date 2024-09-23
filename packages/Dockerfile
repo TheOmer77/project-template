@@ -14,11 +14,8 @@ RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 
 FROM base AS dev
 
-COPY --from=prune /app/package.json /app/pnpm-lock.yaml \
-  /app/pnpm-workspace.yaml ./
-RUN pnpm fetch
 COPY --from=prune /app .
-RUN pnpm install -r --offline
+RUN pnpm install --frozen-lockfile
 
 USER node
-CMD ["./packages/run-all.sh", "dev"]
+CMD ["sh","-c", "./packages/run-all.sh dev"]
