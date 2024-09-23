@@ -10,7 +10,7 @@
     "dev:types": "tsup src/index.ts --clean --dts-only --watch",
     "build": "pnpm --silent run lint && tsx build.ts",
     "lint": "tsc && eslint --max-warnings=0 src",
-    "clean": "rimraf dist"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.1",
