@@ -5,7 +5,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "dev": "pnpm run \"/^dev:.*/\"",
+    "dev": "pnpm --color --reporter-hide-prefix run \"/^dev:.*/\" ",
     "dev:server": "tsx watch --inspect=0.0.0.0 src/index.ts",
     "dev:types": "tsup src/index.ts --clean --dts-only --watch",
     "build": "pnpm --silent run lint && tsx build.ts",
