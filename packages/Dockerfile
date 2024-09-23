@@ -15,7 +15,7 @@ RUN find ./packages -mindepth 2 \( ! -name 'package.json' \) -delete 2>/dev/null
 FROM base AS dev
 
 COPY --from=prune /app .
-RUN pnpm install --frozen-lockfile
+RUN apk add --no-cache gcompat jq && pnpm install --frozen-lockfile
 
 USER node
-CMD ["sh","-c", "./packages/run-all.sh dev"]
+CMD ["sh","-c", "./packages/run-all.sh"]
