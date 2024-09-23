@@ -9,7 +9,7 @@
     "lint": "tsc && eslint --max-warnings=0 src"
   },
   "dependencies": {
-    "@hono/node-server": "^1.13.0",
+    "@hono/node-server": "^1.13.1",
     "@theomer77/some-package": "workspace:*",
     "hono": "^4.6.2"
   }
