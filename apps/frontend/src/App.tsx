@@ -6,11 +6,17 @@ import { apiClient } from '@/lib/api-client';
 
 const testBackend = async () => {
   try {
-    const res = await apiClient.index.$get(),
-      data = await res.json();
+    const res = await apiClient.index.$get();
+    if (!res.ok)
+      throw new Error(
+        `Request failed${res.status ? ` with status code ${res.status}` : ''}`
+      );
+    const data = await res.json();
     return JSON.stringify(data, undefined, 2);
   } catch (err) {
-    return `Error connecting to backend:\n${err}`;
+    return `Error connecting to backend:\n${
+      err instanceof Error ? err.message : err
+    }`;
   }
 };
 
