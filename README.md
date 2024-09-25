@@ -18,7 +18,7 @@ All apps and packages are built using [TypeScript](https://www.typescriptlang.or
 
 ### Docker
 
-This project uses Docker and Docker Compose to build and run all apps. Additional services & environment variables can be added in `docker-compose.yml`.
+This project uses Docker and Docker Compose to build and run all apps. Additional services & environment variables can be added in `compose.yaml`.
 
 ### Utilities
 
