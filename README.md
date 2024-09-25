@@ -8,8 +8,10 @@ This is my personal project template, used for building full stack applications.
 
 - `@repo/frontend`: A [React](https://react.dev) app, bundled by Vite.
 - `@repo/backend`: A backend server, powered by [Node.js](https://nodejs.org) and [Hono](https://hono.dev/).
-- `@repo/shared`: A package for shared code between services.
-- `package-builder`: A service responsible for automatically rebuilding shared packages on changes (in development only).
+- `@repo/shared`: A package for shared code between apps.
+- `@repo/eslint-config`: ESLint presets used by other apps.
+- `@repo/tsconfig`: Base tsconfig.json files used by other apps.
+- A package builder service, responsible for automatically rebuilding shared packages on changes (in development only).
 - An NGINX reverse proxy.
 
 All apps and packages are built using [TypeScript](https://www.typescriptlang.org/).
