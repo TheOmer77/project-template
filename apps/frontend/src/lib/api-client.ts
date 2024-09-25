@@ -1,7 +1,3 @@
-import { hc } from 'hono/client';
+import { hc } from '@repo/backend/hc';
 
-import type { ApiType } from '@repo/backend';
-
-export const apiClient = hc<ApiType>(
-  import.meta.env.VITE_BACKEND_URL || '/api'
-);
+export const apiClient = hc(import.meta.env.VITE_BACKEND_URL || '/api');
