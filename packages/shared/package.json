@@ -1,8 +1,5 @@
 {
   "name": "@repo/shared",
-  "description": "Package template",
-  "version": "1.0.0",
-  "author": "TheOmer77",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
