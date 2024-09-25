@@ -1,5 +1,5 @@
 {
   "extends": "@repo/tsconfig/base.json",
   "compilerOptions": { "lib": ["ESNext"], "paths": { "@/*": ["./src/*"] } },
-  "include": ["src"]
+  "include": ["src", "build.ts"]
 }
