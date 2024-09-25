@@ -1,10 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "declarationMap": false,
-    "noEmit": false,
-    "noUnusedLocals": true,
-    "outDir": "./dist"
-  },
+  "compilerOptions": { "noEmit": false, "outDir": "./dist" },
   "include": ["src/hc.ts"]
 }
