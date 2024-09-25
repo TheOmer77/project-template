@@ -1,14 +1,6 @@
 {
   "name": "@repo/backend",
   "private": true,
-  "exports": {
-    "./hc": {
-      "import": {
-        "types": "./dist/hc.d.ts",
-        "default": "./dist/hc.js"
-      }
-    }
-  },
   "scripts": {
     "start": "node dist/index.js",
     "dev": "pnpm --color --reporter-hide-prefix run \"/^dev:.*/\" ",
@@ -19,6 +11,14 @@
     "build:hc": "tsc -p tsconfig.build.json",
     "lint": "tsc && eslint --max-warnings=0 src",
     "clean": "rm -rf dist"
+  },
+  "exports": {
+    "./hc": {
+      "import": {
+        "types": "./dist/hc.d.ts",
+        "default": "./dist/hc.js"
+      }
+    }
   },
   "dependencies": {
     "@hono/node-server": "^1.13.1",
