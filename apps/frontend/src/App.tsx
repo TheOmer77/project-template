@@ -30,11 +30,11 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>{HELLO_WORLD}</h1>
       <button onClick={testBackend}>Test connection to backend</button>
       {(res || loading) && <pre>{loading ? 'Loading...' : res}</pre>}
-    </div>
+    </>
   );
 };
 
