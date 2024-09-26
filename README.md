@@ -29,25 +29,46 @@ This project uses Docker and Docker Compose to build and run all apps. Additiona
 
 Installing the relevant VSCode extensions is recommended.
 
-## Local development
+## Run the project
 
 ### Prerequisites
 
+- [Docker](https://www.docker.com/)
+
+In development, you'll also need:
+
 - [Node.js](https://nodejs.org/) 20
 - [PNPM](https://pnpm.io/)
-- [Docker](https://www.docker.com/)
 
 ### Running the services
 
-Run the project using Docker Compose, making sure you use the development compose file:
+Run the project using Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+The frontend app will be available at [http://localhost](http://localhost) (port 80), and the backend will be accessible from [http://localhost/api](http://localhost/api).
+
+### Local development
+
+Install dependencies using PNPM:
+
+```bash
+pnpm install
+```
+
+Use Docker Compose to run the project, making sure you use the development compose file:
 
 ```bash
 docker compose -f compose.dev.yaml up -d
 ```
 
-Then just open [http://localhost](http://localhost) (port 80) in your web browser to access the frontend React app; the backend can be accessed from [http://localhost/api](http://localhost/api).
+Then just open your web browser to access the frontend at [http://localhost](http://localhost) and the backend at [http://localhost/api](http://localhost/api), just like in production.
 
-Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to the package.
+Any changes you make to the frontend during development will automatically be reflected in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to the package.
+
+## Configuration
 
 ### Updating environment variables
 
@@ -67,7 +88,7 @@ Environment variables for the entire project are stored in the `.env` file. Afte
       - ENV_VAR=${ENV_VAR}
   ```
 
-- Recreate the relevant services:
+- Recreate the relevant services (use the correct compose file):
 
   ```bash
   docker compose up -d --force-recreate <services>
