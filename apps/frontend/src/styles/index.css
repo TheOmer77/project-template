@@ -1,25 +1,24 @@
 :root {
+  --color-background: #ffffff;
+  --color-foreground: #242d40;
+  --color-surface: rgb(246 247 250 / 0.5);
+  --color-btn: #ffffff;
+  --color-btn-hover: #f6f7fa;
+  --color-border: #f6f7fa;
+  --color-border-hover: #e7ebf3;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
@@ -32,38 +31,50 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  padding: 0 1rem;
+  height: 2.5rem;
+  font-size: 0.875rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  background-color: var(--color-btn);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition:
+    background-color 100ms,
+    border-color 100ms;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--color-btn-hover);
+  border-color: var(--color-border-hover);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+pre {
+  background-color: var(--color-surface);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+    --color-background: #0f141e;
+    --color-foreground: #e7ebf3;
+    --color-surface: rgb(36 45 64 / 0.25);
+    --color-btn: #242d40;
+    --color-btn-hover: #3a4660;
+    --color-border: rgb(58 70 96 / 0.5);
+    --color-border-hover: rgb(81 97 129 / 0.5);
   }
 }
