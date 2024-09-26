@@ -109,11 +109,3 @@ After dependency updates, rebuild the relevant services. If you installed depend
 ```bash
 docker compose up -d --build <services>
 ```
-
-### Troubleshooting
-
-#### No HMR/server not restarting when making changes
-
-This is a common issue if you use Windows/WSL. Due to [a WSL limitation](https://github.com/microsoft/WSL/issues/4739), file system watching does not work when a file is edited by Windows applications (non-WSL2 process).
-
-To fix it, you can move the project folder outside of the Windows filesystem (into your WSL distro), and use WSL2 applications to edit your files. Accessing the Windows filesystem from WSL2 is slow, so doing this will improve performance.
