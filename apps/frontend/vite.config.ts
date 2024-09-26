@@ -17,6 +17,7 @@ export default defineConfig({
   ],
   server: {
     host: true,
+    port: 3000,
     hmr: { clientPort: 80, protocol: 'ws', host: 'localhost' },
   },
   cacheDir: '../../node_modules/.vite',
