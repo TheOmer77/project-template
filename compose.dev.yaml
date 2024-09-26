@@ -34,7 +34,6 @@ services:
     depends_on:
       - backend
       - frontend
-    restart: always
     build:
       dockerfile: ./apps/nginx/Dockerfile
       context: .
