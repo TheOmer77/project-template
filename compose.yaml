@@ -1,0 +1,25 @@
+services:
+  frontend:
+    restart: unless-stopped
+    build:
+      dockerfile: ./apps/frontend/Dockerfile
+      context: .
+      target: prod
+
+  backend:
+    restart: unless-stopped
+    build:
+      dockerfile: ./apps/backend/Dockerfile
+      context: .
+      target: prod
+
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+    build:
+      dockerfile: ./apps/nginx/Dockerfile
+      context: .
+    ports:
+      - '80:80'
