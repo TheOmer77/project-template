@@ -96,18 +96,17 @@ Environment variables for the entire project are stored in the `.env` file. Afte
 
 ### Installing & updating dependencies
 
-To install dependencies in a service or package, run:
+To install dependencies in an app or package, run:
 
 ```bash
-pnpm -F <service> i <dependencies>
+pnpm -F @repo/<app> i <dependencies>
 ```
 
-To install dependencies for the entire project (usually dev dependencies), the `-F` flag is not needed.
+To install dependencies at the workspace root (usually dev dependencies), replace `-F @repo/<app>` with `-w`.
 
-After dependency updates, rebuild the relevant services. If dependencies were installed in a package, rebuild all services that use it & the package builder.
+After dependency updates, rebuild the relevant services. If you installed dependencies in a package, rebuild all apps that use it & the package builder.
 
 ```bash
-docker builder prune -af
 docker compose up -d --build <services>
 ```
 
