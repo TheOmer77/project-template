@@ -18,7 +18,7 @@ All apps and packages are built using [TypeScript](https://www.typescriptlang.or
 
 ### Docker
 
-This project uses Docker and Docker Compose to build and run all apps. Additional services & environment variables can be added in `compose.yaml`.
+This project uses Docker and Docker Compose to build and run all apps. Additional services & environment variables can be added in `compose.yaml` for production, and `compose.dev.yaml` for development.
 
 ### Utilities
 
@@ -39,10 +39,10 @@ Installing the relevant VSCode extensions is recommended.
 
 ### Running the services
 
-Run the project using Docker Compose:
+Run the project using Docker Compose, making sure you use the development compose file:
 
 ```bash
-docker compose up -d
+docker compose -f compose.dev.yaml up -d
 ```
 
 Then just open [http://localhost](http://localhost) (port 80) in your web browser to access the frontend React app; the backend can be accessed from [http://localhost/api](http://localhost/api).
@@ -53,7 +53,7 @@ Any changes you make to the frontend will automatically be shown in the browser,
 
 Environment variables for the entire project are stored in the `.env` file. After editing this file:
 
-- If any new variables were added, add them to the relevant services in `docker-compose.yml`:
+- If any new variables were added, add them to the relevant services in `compose.yaml` (or `compose.dev.yaml` in development):
 
   > Note that all frontend variables have to be prefixed with `VITE_`; [This prefix can be changed](https://vitejs.dev/config/shared-options.html#envprefix).
 
