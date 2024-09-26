@@ -36,7 +36,7 @@ services:
       - frontend
     restart: always
     build:
-      dockerfile: ./apps/nginx/Dockerfile.dev
+      dockerfile: ./apps/nginx/Dockerfile
       context: .
     ports:
       - '80:80'
