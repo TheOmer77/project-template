@@ -5,6 +5,7 @@ const config = defineConfig({
   format: ['esm'],
   dts: true,
   minify: true,
+  sourcemap: 'inline',
 });
 
 export default config;
