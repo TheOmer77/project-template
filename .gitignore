@@ -1,15 +1,6 @@
-# Dependencies
 node_modules
-.pnp
-.pnp.js
-
-# Production
 dist/
-
-# TypeScript
 *.tsbuildinfo
-
-# Turbo
 .turbo
 out/
 
