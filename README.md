@@ -1,24 +1,44 @@
 # Project Template
 
-This is my personal full stack project template, consisting of:
+This is my personal project template, used for building full stack applications.
 
-- A frontend app, which uses React and is bundled by Vite.
-- A backend server, powered by Node.js and Hono.
-- A package for shared code between services, and a service that automatically rebuilds it on changes.
+## About this template
+
+### Included apps and packages
+
+- `@repo/frontend`: A [React](https://react.dev) app, bundled by [Vite](https://vitejs.dev/).
+- `@repo/backend`: A [Node.js](https://nodejs.org) server, powered by [Hono](https://hono.dev/).
+- `@repo/shared`: A package for shared code between apps.
+- `@repo/eslint-config`: ESLint presets used by other apps.
+- `@repo/tsconfig`: Base tsconfig.json files used by other apps.
+- A package builder service, responsible for automatically rebuilding shared packages on changes (in development only).
 - An NGINX reverse proxy.
 
-Other technologies used in the entire project include TypeScript for the frontend, backend and package, and Docker which runs all services. \
-This template also includes a Prettier `.prettierrc` and an ESLint `.eslintrc.json` for the entire project, as well as an `.eslintrc.json` specific to the frontend. Installing the relevant VSCode extensions is recommended.
+All apps and packages are built using [TypeScript](https://www.typescriptlang.org/).
 
-Additional services & environment variables can be added in `docker-compose.yml`.
+### Docker
 
-## Local development
+This project uses Docker and Docker Compose to build and run all apps. Additional services & environment variables can be added in `compose.yaml` for production, and `compose.dev.yaml` for development.
+
+### Utilities
+
+- [PNPM](https://pnpm.io/) as the package manager
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+Installing the relevant VSCode extensions is recommended.
+
+## Run the project
 
 ### Prerequisites
 
+- [Docker](https://www.docker.com/)
+
+In development, you'll also need:
+
 - [Node.js](https://nodejs.org/) 20
 - [PNPM](https://pnpm.io/)
-- [Docker](https://www.docker.com/)
 
 ### Running the services
 
@@ -28,15 +48,33 @@ Run the project using Docker Compose:
 docker compose up -d
 ```
 
-Then just open [http://localhost](http://localhost) (port 80) in your web browser to access the frontend React app; the backend can be accessed from [http://localhost/api](http://localhost/api).
+The frontend app will be available at [http://localhost](http://localhost) (port 80), and the backend will be accessible from [http://localhost/api](http://localhost/api).
 
-Any changes you make to the frontend will automatically be shown in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to the package.
+### Local development
+
+Install dependencies using PNPM:
+
+```bash
+pnpm install
+```
+
+Use Docker Compose to run the project, making sure you use the development compose file:
+
+```bash
+docker compose -f compose.dev.yaml up -d
+```
+
+Then just open your web browser to access the frontend at [http://localhost](http://localhost) and the backend at [http://localhost/api](http://localhost/api), just like in production.
+
+Any changes you make to the frontend during development will automatically be reflected in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to shared packages.
+
+## Configuration
 
 ### Updating environment variables
 
 Environment variables for the entire project are stored in the `.env` file. After editing this file:
 
-- If any new variables were added, add them to the relevant services in `docker-compose.yml`:
+- If any new variables were added, add them to the relevant services in `compose.yaml` (or `compose.dev.yaml` in development):
 
   > Note that all frontend variables have to be prefixed with `VITE_`; [This prefix can be changed](https://vitejs.dev/config/shared-options.html#envprefix).
 
@@ -50,7 +88,7 @@ Environment variables for the entire project are stored in the `.env` file. Afte
       - ENV_VAR=${ENV_VAR}
   ```
 
-- Recreate the relevant services:
+- Recreate the relevant services (use the correct compose file):
 
   ```bash
   docker compose up -d --force-recreate <services>
@@ -58,28 +96,16 @@ Environment variables for the entire project are stored in the `.env` file. Afte
 
 ### Installing & updating dependencies
 
-To install dependencies in a service or package, run:
+To install dependencies in an app or package, run:
 
 ```bash
-pnpm -F <service> i <dependencies>
+pnpm -F @repo/<app> i <dependencies>
 ```
 
-To install dependencies for the entire project (usually dev dependencies), the `-F` flag is not needed.
+To install dependencies at the workspace root (usually dev dependencies), replace `-F @repo/<app>` with `-w`.
 
-After dependency updates, rebuild the relevant services. If dependencies were installed in a package, rebuild all services that use it & the package builder.
+After dependency updates, rebuild the relevant services. If you installed dependencies in a package, rebuild all apps that use it & the package builder.
 
 ```bash
-docker builder prune -af
 docker compose up -d --build <services>
 ```
-
-### Troubleshooting
-
-#### No HMR/server not restarting when making changes
-
-This is a common issue if you use Windows/WSL. Due to [a WSL limitation](https://github.com/microsoft/WSL/issues/4739), file system watching does not work when a file is edited by Windows applications (non-WSL2 process).
-
-To fix it, you could either:
-
-- **Recommended:** Move the project folder outside of a Windows filesystem (into your WSL distro), and use WSL2 applications to edit your files. Accessing the Windows filesystem from WSL2 is slow, so doing this will improve performance.
-- Add `CHOKIDAR_USEPOLLING=true` to your `.env` file. Note that this [leads to high CPU utilization](https://github.com/paulmillr/chokidar#performance).

@@ -1,0 +1,30 @@
+{
+  "name": "@repo/frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "tsc --noEmit && eslint --max-warnings 0 src",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@repo/shared": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@repo/backend": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^22.7.0",
+    "@types/react": "^18.3.9",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "eslint": "^8.57.1",
+    "vite": "^5.4.8",
+    "vite-plugin-checker": "^0.8.0",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^5.0.1"
+  }
+}

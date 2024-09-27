@@ -1,0 +1,21 @@
+{
+  "name": "@repo/shared",
+  "type": "module",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "pnpm --silent run lint && tsup",
+    "lint": "tsc && eslint --max-warnings=0 src",
+    "clean": "rm -rf dist"
+  },
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.js"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^22.7.0",
+    "eslint": "^8.57.0",
+    "tsup": "^8.3.0"
+  }
+}
