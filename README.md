@@ -7,7 +7,7 @@ This is my personal project template, used for building full stack applications.
 ### Included apps and packages
 
 - `@repo/frontend`: A [React](https://react.dev) app, bundled by [Vite](https://vitejs.dev/).
-- `@repo/backend`: A backend server, powered by [Node.js](https://nodejs.org) and [Hono](https://hono.dev/).
+- `@repo/backend`: A [Node.js](https://nodejs.org) server, powered by [Hono](https://hono.dev/).
 - `@repo/shared`: A package for shared code between apps.
 - `@repo/eslint-config`: ESLint presets used by other apps.
 - `@repo/tsconfig`: Base tsconfig.json files used by other apps.
@@ -66,7 +66,7 @@ docker compose -f compose.dev.yaml up -d
 
 Then just open your web browser to access the frontend at [http://localhost](http://localhost) and the backend at [http://localhost/api](http://localhost/api), just like in production.
 
-Any changes you make to the frontend during development will automatically be reflected in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to the package.
+Any changes you make to the frontend during development will automatically be reflected in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to shared packages.
 
 ## Configuration
 
