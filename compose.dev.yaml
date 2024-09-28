@@ -4,6 +4,8 @@ services:
       dockerfile: ./apps/frontend/Dockerfile
       context: .
       target: dev
+    ports:
+      - '80:3000'
     volumes:
       - .:/app
       - /app/node_modules
@@ -27,13 +29,3 @@ services:
       context: .
     volumes:
       - ./packages:/app/packages
-
-  nginx:
-    depends_on:
-      - backend
-      - frontend
-    build:
-      dockerfile: ./apps/nginx/Dockerfile
-      context: .
-    ports:
-      - '80:80'
