@@ -8,8 +8,6 @@ services:
       - .:/app
       - /app/node_modules
       - /app/apps/frontend/node_modules
-    environment:
-      - VITE_BACKEND_URL=/api
 
   backend:
     build:
