@@ -1,10 +1,12 @@
+'use client';
+
 import { useState } from 'react';
 
 import { HELLO_WORLD } from '@repo/shared';
 
 import { apiClient } from '@/lib/api-client';
 
-const App = () => {
+const Page = () => {
   const [res, setRes] = useState<string>(),
     [loading, setLoading] = useState(false);
 
@@ -30,12 +32,12 @@ const App = () => {
   };
 
   return (
-    <>
+    <div>
       <h1>{HELLO_WORLD}</h1>
       <button onClick={testBackend}>Test connection to backend</button>
       {(res || loading) && <pre>{loading ? 'Loading...' : res}</pre>}
-    </>
+    </div>
   );
 };
 
-export default App;
+export default Page;
