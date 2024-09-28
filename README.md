@@ -12,7 +12,6 @@ This is my personal project template, used for building full stack applications.
 - `@repo/eslint-config`: ESLint presets used by other apps.
 - `@repo/tsconfig`: Base tsconfig.json files used by other apps.
 - A package builder service, responsible for automatically rebuilding shared packages on changes (in development only).
-- An NGINX reverse proxy.
 
 All apps and packages are built using [TypeScript](https://www.typescriptlang.org/).
 
