@@ -1,12 +1,11 @@
 {
   "name": "@repo/frontend",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "next dev",
+    "build": "next build",
     "lint": "tsc --noEmit && eslint --max-warnings 0 src",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
