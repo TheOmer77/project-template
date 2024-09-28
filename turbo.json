@@ -1,9 +1,13 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["APP_NAME", "PORT", "VITE_BACKEND_URL"],
+  "globalEnv": ["APP_NAME", "PORT", "BACKEND_URL"],
   "tasks": {
     "dev": { "persistent": true, "cache": false },
-    "build": { "dependsOn": ["^build"], "outputs": ["dist/**"] },
+    "build": {
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "public/dist/**"]
+    },
     "lint": { "dependsOn": ["^lint"] },
     "clean": { "cache": false }
   }
