@@ -4,6 +4,7 @@ dist/
 out/
 *.tsbuildinfo
 .turbo
+next-env.d.ts
 
 # Env files
 .env*
