@@ -6,7 +6,7 @@ This is my personal project template, used for building full stack applications.
 
 ### Included apps and packages
 
-- `@repo/frontend`: A [React](https://react.dev) app, bundled by [Vite](https://vitejs.dev/).
+- `@repo/frontend`: A [React](https://react.dev) [Next.js](https://nextjs.org/) app.
 - `@repo/backend`: A [Node.js](https://nodejs.org) server, powered by [Hono](https://hono.dev/).
 - `@repo/shared`: A package for shared code between apps.
 - `@repo/eslint-config`: ESLint presets used by other apps.
