@@ -75,12 +75,10 @@ Environment variables for the entire project are stored in the `.env` file. Afte
 
 - If any new variables were added, add them to the relevant services in `compose.yaml` (or `compose.dev.yaml` in development):
 
-  > Note that all frontend variables have to be prefixed with `VITE_`; [This prefix can be changed](https://vitejs.dev/config/shared-options.html#envprefix).
-
   ```yml
   frontend:
     environment:
-      - VITE_ENV_VAR=${ENV_VAR}
+      - ENV_VAR=${ENV_VAR}
 
   backend:
     environment:
