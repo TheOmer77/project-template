@@ -32,7 +32,7 @@ RUN pnpm install -r --offline && \
   chown -R node:node /app/apps/$APP_NAME/.next
 
 USER node
-CMD ["sh", "-c", "pnpm turbo dev -F @repo/$APP_NAME  --color"]
+CMD ["sh", "-c", "pnpm turbo dev -F @repo/$APP_NAME --color"]
 
 # Production build - install deps & build
 FROM base AS build
