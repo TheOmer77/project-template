@@ -47,7 +47,7 @@ Run the project using Docker Compose:
 docker compose up -d
 ```
 
-The frontend app will be available at [http://localhost](http://localhost) (port 80), and the backend will be accessible from [http://localhost/api](http://localhost/api).
+The frontend app will be available at [localhost:3000](http://localhost:3000), and the backend will be accessible from [localhost:3000/api](http://localhost:3000/api).
 
 ### Local development
 
@@ -63,7 +63,7 @@ Use Docker Compose to run the project, making sure you use the development compo
 docker compose -f compose.dev.yaml up -d
 ```
 
-Then just open your web browser to access the frontend at [http://localhost](http://localhost) and the backend at [http://localhost/api](http://localhost/api), just like in production.
+Then just open your web browser to access the frontend at [localhost:3000](http://localhost:3000) and the backend at [localhost:3000/api](http://localhost:3000/api), just like in production.
 
 Any changes you make to the frontend during development will automatically be reflected in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to shared packages.
 
