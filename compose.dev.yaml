@@ -10,6 +10,7 @@ services:
       - .:/app
       - /app/node_modules
       - /app/apps/frontend/node_modules
+      - /app/apps/frontend/.next
 
   backend:
     build:
