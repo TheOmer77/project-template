@@ -1,8 +1,9 @@
 node_modules
 dist/
+.next/
+out/
 *.tsbuildinfo
 .turbo
-out/
 
 # Env files
 .env*

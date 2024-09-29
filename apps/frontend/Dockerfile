@@ -28,8 +28,8 @@ COPY --from=prune /app/out/json/package.json \
 RUN pnpm fetch
 COPY --from=prune /app/out/json/ .
 RUN pnpm install -r --offline && \
-  mkdir /app/node_modules/.vite && \
-  chown -R node:node /app/node_modules/.vite
+  mkdir /app/apps/$APP_NAME/.next && \
+  chown -R node:node /app/apps/$APP_NAME/.next
 
 USER node
 CMD ["sh", "-c", "pnpm turbo dev -F @repo/$APP_NAME --color"]
@@ -44,10 +44,12 @@ COPY --from=prune /app/out/full/ .
 RUN pnpm install -r --offline && pnpm turbo build -F @repo/$APP_NAME...
 
 # Production image - copy just build files
-FROM nginx:1.27.1-alpine3.20 AS prod
-ENV APP_NAME=frontend
+FROM base AS prod
+ENV NODE_ENV=production
 
-COPY --from=build /app/apps/$APP_NAME/dist /usr/share/nginx/html
-COPY ./apps/$APP_NAME/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build --chown=node:node /app/apps/$APP_NAME/.next/standalone ./
+COPY --from=build --chown=node:node /app/apps/$APP_NAME/.next/static \
+  ./apps/$APP_NAME/.next/static
 
-EXPOSE 80
+USER node
+CMD ["sh", "-c", "node apps/$APP_NAME/server.js"]

@@ -1,80 +1,34 @@
-:root {
-  --color-background: #ffffff;
-  --color-foreground: #242d40;
-  --color-surface: rgb(246 247 250 / 0.5);
-  --color-btn: #ffffff;
-  --color-btn-hover: #f6f7fa;
-  --color-border: #f6f7fa;
-  --color-border-hover: #e7ebf3;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: var(--color-foreground);
-  background-color: var(--color-background);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-content: center;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100dvh;
-}
-
-h1 {
-  font-size: 3rem;
-  line-height: 1;
-  letter-spacing: -0.025em;
-}
-
-button {
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-border);
-  padding: 0 1rem;
-  height: 2.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: var(--color-btn);
-  box-shadow:
-    0 1px 3px 0 rgb(0 0 0 / 0.1),
-    0 1px 2px -1px rgb(0 0 0 / 0.1);
-  transition:
-    background-color 100ms,
-    border-color 100ms;
-}
-button:hover {
-  background-color: var(--color-btn-hover);
-  border-color: var(--color-border-hover);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-pre {
-  background-color: var(--color-surface);
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --color-background: #0f141e;
-    --color-foreground: #e7ebf3;
-    --color-surface: rgb(36 45 64 / 0.25);
-    --color-btn: #242d40;
-    --color-btn-hover: #3a4660;
-    --color-border: rgb(58 70 96 / 0.5);
-    --color-border-hover: rgb(81 97 129 / 0.5);
+    --color-background: 255 255 255;
+    --color-foreground: 36 45 64;
+    --color-surface: 246 247 250;
+    --color-btn: 255 255 255;
+    --color-btn-hover: 246 247 250;
+    --color-border: 231 235 243;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: 15 20 30;
+      --color-foreground: 231 235 243;
+      --color-surface: 36 45 64;
+      --color-btn: 36 45 64;
+      --color-btn-hover: 47 57 80;
+      --color-border: 58 70 96;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground flex min-h-dvh place-content-center place-items-center;
   }
 }

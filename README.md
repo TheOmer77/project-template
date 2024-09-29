@@ -6,13 +6,12 @@ This is my personal project template, used for building full stack applications.
 
 ### Included apps and packages
 
-- `@repo/frontend`: A [React](https://react.dev) app, bundled by [Vite](https://vitejs.dev/).
+- `@repo/frontend`: A [React](https://react.dev) [Next.js](https://nextjs.org/) app.
 - `@repo/backend`: A [Node.js](https://nodejs.org) server, powered by [Hono](https://hono.dev/).
 - `@repo/shared`: A package for shared code between apps.
 - `@repo/eslint-config`: ESLint presets used by other apps.
 - `@repo/tsconfig`: Base tsconfig.json files used by other apps.
 - A package builder service, responsible for automatically rebuilding shared packages on changes (in development only).
-- An NGINX reverse proxy.
 
 All apps and packages are built using [TypeScript](https://www.typescriptlang.org/).
 
@@ -48,7 +47,7 @@ Run the project using Docker Compose:
 docker compose up -d
 ```
 
-The frontend app will be available at [http://localhost](http://localhost) (port 80), and the backend will be accessible from [http://localhost/api](http://localhost/api).
+The frontend app will be available at [localhost:3000](http://localhost:3000), and the backend will be accessible from [localhost:3000/api](http://localhost:3000/api).
 
 ### Local development
 
@@ -64,7 +63,7 @@ Use Docker Compose to run the project, making sure you use the development compo
 docker compose -f compose.dev.yaml up -d
 ```
 
-Then just open your web browser to access the frontend at [http://localhost](http://localhost) and the backend at [http://localhost/api](http://localhost/api), just like in production.
+Then just open your web browser to access the frontend at [localhost:3000](http://localhost:3000) and the backend at [localhost:3000/api](http://localhost:3000/api), just like in production.
 
 Any changes you make to the frontend during development will automatically be reflected in the browser, while any changes made to the backend code will cause the development server to restart. Both services will react to changes made to shared packages.
 
@@ -76,12 +75,10 @@ Environment variables for the entire project are stored in the `.env` file. Afte
 
 - If any new variables were added, add them to the relevant services in `compose.yaml` (or `compose.dev.yaml` in development):
 
-  > Note that all frontend variables have to be prefixed with `VITE_`; [This prefix can be changed](https://vitejs.dev/config/shared-options.html#envprefix).
-
   ```yml
   frontend:
     environment:
-      - VITE_ENV_VAR=${ENV_VAR}
+      - ENV_VAR=${ENV_VAR}
 
   backend:
     environment:

@@ -4,12 +4,12 @@ services:
       dockerfile: ./apps/frontend/Dockerfile
       context: .
       target: dev
+    ports:
+      - '3000:3000'
     volumes:
       - .:/app
       - /app/node_modules
       - /app/apps/frontend/node_modules
-    environment:
-      - VITE_BACKEND_URL=/api
 
   backend:
     build:
@@ -29,13 +29,3 @@ services:
       context: .
     volumes:
       - ./packages:/app/packages
-
-  nginx:
-    depends_on:
-      - backend
-      - frontend
-    build:
-      dockerfile: ./apps/nginx/Dockerfile
-      context: .
-    ports:
-      - '80:80'
