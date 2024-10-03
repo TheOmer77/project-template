@@ -14,7 +14,7 @@ module.exports = {
       'warn',
       {
         'src/app/**': 'NEXT_JS_APP_ROUTER_CASE',
-        'src/!(app)/**/*': 'KEBAB_CASE',
+        'src/!(app)/**': 'KEBAB_CASE',
       },
     ],
   },
