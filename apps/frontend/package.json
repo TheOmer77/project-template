@@ -5,6 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "tsc --noEmit && eslint --max-warnings 0 src",
+    "format": "eslint --fix src && prettier --ignore-path ../../.prettierignore --write .",
     "clean": "rm -rf .next"
   },
   "dependencies": {
