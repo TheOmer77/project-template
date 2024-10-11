@@ -3,7 +3,6 @@
 import { useState } from 'react';
 
 import { HELLO_WORLD } from '@repo/shared';
-
 import { apiClient } from '@/lib/api-client';
 
 const Page = () => {
@@ -35,13 +34,13 @@ const Page = () => {
     <div>
       <h1 className='mb-6 text-5xl font-bold tracking-tight'>{HELLO_WORLD}</h1>
       <button
-        className='bg-btn hover:bg-btn-hover ring-offset-background focus-visible:ring-foreground inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-lg border px-4 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
+        className='inline-flex h-10 cursor-default items-center justify-center whitespace-nowrap rounded-lg border bg-btn px-4 text-sm font-medium shadow ring-offset-background transition-colors hover:bg-btn-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2'
         onClick={testBackend}
       >
         Test connection to backend
       </button>
       {(res || loading) && (
-        <pre className='bg-surface/50 mt-4 rounded-lg p-4'>
+        <pre className='mt-4 rounded-lg bg-surface/50 p-4'>
           {loading ? 'Loading...' : res}
         </pre>
       )}
