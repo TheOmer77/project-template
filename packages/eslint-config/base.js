@@ -81,4 +81,5 @@ module.exports = {
     ],
     'prefer-template': ['warn'],
   },
+  settings: { 'import-x/resolver': { node: true, typescript: true } },
 };
