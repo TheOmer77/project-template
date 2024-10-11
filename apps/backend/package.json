@@ -9,7 +9,7 @@
     "build": "if [ \"$APP_NAME\" = \"backend\" ]; then pnpm run build:server; else pnpm run build:hc; fi",
     "build:server": "tsx build.ts",
     "build:hc": "tsc -p tsconfig.build.json",
-    "lint": "tsc && eslint --max-warnings=0 src",
+    "lint": "tsc && eslint --max-warnings 0 src && prettier --ignore-path ../../.prettierignore --check .",
     "format": "eslint --fix src && prettier --ignore-path ../../.prettierignore --write .",
     "clean": "rm -rf dist"
   },
