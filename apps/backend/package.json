@@ -10,6 +10,7 @@
     "build:server": "tsx build.ts",
     "build:hc": "tsc -p tsconfig.build.json",
     "lint": "tsc && eslint --max-warnings=0 src",
+    "format": "eslint --fix src && prettier --ignore-path ../../.prettierignore --write .",
     "clean": "rm -rf dist"
   },
   "exports": {
