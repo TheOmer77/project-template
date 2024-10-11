@@ -4,7 +4,11 @@ const project = resolve(process.cwd(), 'tsconfig.json');
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['next/core-web-vitals', './base.js'],
+  extends: [
+    'next/core-web-vitals',
+    'plugin:tailwindcss/recommended',
+    './base.js',
+  ],
   globals: { React: true, JSX: true },
   env: { node: true },
   settings: { 'import/resolver': { typescript: { project } } },
