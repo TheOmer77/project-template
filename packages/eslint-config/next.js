@@ -11,7 +11,10 @@ module.exports = {
   ],
   globals: { React: true, JSX: true },
   env: { node: true },
-  settings: { 'import/resolver': { typescript: { project } } },
+  settings: {
+    'import/resolver': { typescript: { project } },
+    tailwindcss: { callees: ['clsx', 'cn', 'cva'] },
+  },
   ignorePatterns: ['.*.js', 'node_modules/'],
   rules: {
     'check-file/folder-naming-convention': [
