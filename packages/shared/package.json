@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "pnpm --silent run lint && tsup",
+    "prebuild": "pnpm --silent run lint",
+    "build": "tsup",
     "lint": "tsc && eslint --max-warnings=0 src && prettier --ignore-path ../../.prettierignore --check .",
     "format": "eslint --fix src && prettier --ignore-path ../../.prettierignore --write .",
     "clean": "rm -rf dist"
