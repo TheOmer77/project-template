@@ -37,7 +37,7 @@ FROM base AS build
 COPY --from=prune /app/out/json/package.json \
   /app/out/json/pnpm-lock.yaml ./
 RUN pnpm fetch
-COPY --from=prune /app/out/full/ .
+COPY --from=prune /app/out/full/ /app/.prettierrc /app/.prettierignore ./
 RUN pnpm install -r --offline && pnpm turbo build -F @repo/$APP_NAME...
 
 # Production image - copy just build files
