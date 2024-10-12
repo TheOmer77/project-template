@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
-    "next": "^14.2.14",
+    "next": "^14.2.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -21,7 +21,7 @@
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "postcss": "^8.4.47",
