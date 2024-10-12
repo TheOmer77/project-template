@@ -9,6 +9,7 @@
       "outputs": ["dist/**", ".next/**", "!.next/cache/**", "public/dist/**"]
     },
     "lint": { "dependsOn": ["^lint"] },
+    "format": { "dependsOn": ["^format"] },
     "clean": { "cache": false }
   }
 }

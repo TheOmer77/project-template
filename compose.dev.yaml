@@ -1,5 +1,6 @@
 services:
   frontend:
+    image: project-template-frontend:dev
     build:
       dockerfile: ./apps/frontend/Dockerfile
       context: .
@@ -13,6 +14,7 @@ services:
       - /app/apps/frontend/.next
 
   backend:
+    image: project-template-backend:dev
     build:
       dockerfile: ./apps/backend/Dockerfile
       context: .
@@ -25,6 +27,7 @@ services:
       - /app/apps/backend/node_modules
 
   package-builder:
+    image: project-template-package-builder:dev
     build:
       dockerfile: ./packages/Dockerfile
       context: .

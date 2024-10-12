@@ -1,4 +1,4 @@
-FROM node:20.17.0-alpine3.20 AS base
+FROM node:20.18.0-alpine3.20 AS base
 ENV APP_NAME=frontend
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -40,7 +40,7 @@ FROM base AS build
 COPY --from=prune /app/out/json/package.json \
   /app/out/json/pnpm-lock.yaml ./
 RUN pnpm fetch
-COPY --from=prune /app/out/full/ .
+COPY --from=prune /app/out/full/ /app/.prettierrc /app/.prettierignore ./
 RUN pnpm install -r --offline && pnpm turbo build -F @repo/$APP_NAME...
 
 # Production image - copy just build files
