@@ -6,6 +6,7 @@
     "dev": "pnpm --color --reporter-hide-prefix run \"/^dev:.*/\" ",
     "dev:server": "tsx watch --inspect=0.0.0.0 src/index.ts",
     "dev:hc": "tsc -p tsconfig.build.json --watch",
+    "prebuild": "pnpm --silent run lint",
     "build": "if [ \"$APP_NAME\" = \"backend\" ]; then pnpm run build:server; else pnpm run build:hc; fi",
     "build:server": "tsx build.ts",
     "build:hc": "tsc -p tsconfig.build.json",
