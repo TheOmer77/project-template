@@ -16,8 +16,8 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
-    "@types/node": "^22.7.5",
-    "eslint": "^8.57.1",
+    "@types/node": "^22.7.7",
+    "eslint": "^9.13.0",
     "tsup": "^8.3.0"
   }
 }
