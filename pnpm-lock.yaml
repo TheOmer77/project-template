@@ -27,7 +27,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/shared
       hono:
-        specifier: ^4.6.5
+        specifier: ^4.6.6
         version: 4.6.6
     devDependencies:
       '@repo/eslint-config':
