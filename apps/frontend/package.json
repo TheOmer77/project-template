@@ -2,7 +2,7 @@
   "name": "@repo/frontend",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "prebuild": "pnpm --silent run lint",
     "build": "next build",
     "lint": "tsc && eslint --max-warnings 0 src && prettier --ignore-path ../../.prettierignore --check .",
@@ -11,20 +11,26 @@
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
-    "next": "^14.2.15",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "next": "15.0.0",
+    "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "19.0.0-rc-65a56d0e-20241020"
   },
   "devDependencies": {
     "@repo/backend": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^22.7.8",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   }
 }
