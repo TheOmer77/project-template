@@ -9,7 +9,7 @@ const config = {
       destination: `${process.env.BACKEND_URL || 'http://backend:8000'}/:path*`,
     },
   ],
-  outputFileTracingRoot: join(import.meta.dirname, '../../'),
+  outputFileTracingRoot: join(__dirname, '../../'),
   // ESLint & tsc are used in prebuild script instead
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
