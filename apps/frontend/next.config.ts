@@ -3,7 +3,7 @@ import { join } from 'path';
 
 const config = {
   output: 'standalone',
-  rewrites: () => [
+  rewrites: async () => [
     {
       source: '/api/:path*',
       destination: `${process.env.BACKEND_URL || 'http://backend:8000'}/:path*`,
