@@ -1,6 +1,6 @@
+import type { NextConfig } from 'next';
 import { join } from 'path';
 
-/** @type {import('next').NextConfig} */
 const config = {
   output: 'standalone',
   rewrites: () => [
@@ -13,6 +13,6 @@ const config = {
   // ESLint & tsc are used in prebuild script instead
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-};
+} satisfies NextConfig;
 
 export default config;
