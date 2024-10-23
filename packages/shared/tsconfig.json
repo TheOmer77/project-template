@@ -1,5 +1,5 @@
 {
   "extends": "@repo/tsconfig/base.json",
   "compilerOptions": { "paths": { "@/*": ["./src/*"] } },
-  "include": ["src"]
+  "include": ["src", "eslint.config.mjs"]
 }
