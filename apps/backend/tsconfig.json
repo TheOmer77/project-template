@@ -1,5 +1,5 @@
 {
   "extends": "@repo/tsconfig/base.json",
   "compilerOptions": { "lib": ["ESNext"], "paths": { "@/*": ["./src/*"] } },
-  "include": ["src", "build.ts"]
+  "include": ["src", "build.ts", "eslint.config.mjs"]
 }
