@@ -1,62 +1,37 @@
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:import-x/recommended',
-    'plugin:import-x/typescript',
-    'prettier',
-    'turbo',
-  ],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['check-file', 'prefer-arrow-functions', 'simple-import-sort'],
-  rules: {
-    'check-file/filename-naming-convention': [
-      'warn',
-      { '**/*.{ts,tsx}': 'KEBAB_CASE' },
-      { ignoreMiddleExtensions: true },
-    ],
-    'check-file/folder-naming-convention': ['warn', { 'src/**': 'KEBAB_CASE' }],
-    'prefer-arrow-callback': ['warn'],
-    'prefer-arrow-functions/prefer-arrow-functions': [
-      'warn',
-      {
-        allowNamedFunctions: false,
-        classPropertiesAllowed: false,
-        disallowPrototype: false,
-        returnStyle: 'implicit',
-        singleReturnOnly: false,
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import importPlugin from 'eslint-plugin-import';
+import prettier from 'eslint-config-prettier';
+
+import { checkFile } from './rules/check-file.js';
+import { preferArrow } from './rules/prefer-arrow.js';
+import { preferTemplate } from './rules/prefer-template.js';
+import { sortImports } from './rules/sort-imports.js';
+import compat from './utils/compat.js';
+
+const baseConfig = tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
+  prettier,
+  ...compat.extends('turbo'),
+
+  checkFile,
+  preferArrow,
+  preferTemplate,
+  sortImports,
+
+  {
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        projectService: true,
       },
-    ],
-    'prefer-template': ['warn'],
-    'simple-import-sort/imports': [
-      'error',
-      {
-        groups: [
-          ['^hono', '^react', '^next', '^next/.*', '^@?\\w'],
-          ['^@repo/.*'],
-          [
-            '^@/components/ui/.*',
-            '^@/components/(?!ui).*',
-            '^@/hooks(/.*)?',
-            '^@/routes(/.*)?',
-            '^@/utils(/.*)?',
-            '^@/lib(/.*)?',
-            '^@/config(/.*)?',
-            '^@/constants(/.*)?',
-            '^@/types(/.*)?',
-            '^@/styles(/.*)?',
-          ],
-          [
-            '^\\./?$',
-            '^\\.(?!/?$)',
-            '^\\./(?=.*/)(?!/?$)',
-            '^\\.\\./?$',
-            '^\\.\\.(?!/?$)',
-          ],
-        ],
-      },
-    ],
+    },
   },
-  settings: { 'import-x/resolver': { node: true, typescript: true } },
-};
+  { ignores: ['.*.js', 'node_modules/', 'dist/', '.next/'] }
+);
+
+export default baseConfig;

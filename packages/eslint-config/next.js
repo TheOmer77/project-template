@@ -1,47 +1,25 @@
-const { resolve } = require('node:path');
+import tailwind from 'eslint-plugin-tailwindcss';
+import tseslint from 'typescript-eslint';
+import globals from 'globals';
 
-const project = resolve(process.cwd(), 'tsconfig.json');
+import baseConfig from './base.js';
+import { nextRestrictedImports } from './rules/restricted-imports.js';
+import { nextCheckFile } from './rules/check-file.js';
+import compat from './utils/compat.js';
 
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
-  extends: [
-    'next/core-web-vitals',
-    'plugin:tailwindcss/recommended',
-    './base.js',
-  ],
-  globals: { React: true, JSX: true },
-  env: { node: true },
-  settings: {
-    'import/resolver': { typescript: { project } },
-    tailwindcss: { callees: ['clsx', 'cn', 'cva'] },
-  },
-  ignorePatterns: ['.*.js', 'node_modules/'],
-  rules: {
-    'check-file/folder-naming-convention': [
-      'warn',
-      {
-        'src/app/**': 'NEXT_JS_APP_ROUTER_CASE',
-        'src/!(app)/**': 'KEBAB_CASE',
-      },
-    ],
-    'no-restricted-imports': [
-      'error',
-      {
-        paths: [
-          {
-            name: 'next/router',
-            message: "Import from 'next/navigation' instead.",
-          },
-        ],
-        patterns: [
-          {
-            group: ['lucide-react'],
-            importNamePattern: '^(Lucide.*|(?:(?!.*Icon$).+))$',
-            message:
-              "Only import icons that end with 'Icon' and don't start with 'Lucide'.",
-          },
-        ],
-      },
-    ],
-  },
-};
+const nextConfig = tseslint.config(
+  ...baseConfig,
+  ...compat.extends('next/core-web-vitals'),
+  ...tailwind.configs['flat/recommended'],
+
+  nextCheckFile,
+  nextRestrictedImports,
+
+  {
+    languageOptions: {
+      globals: { ...globals.node, ...globals.browser },
+    },
+  }
+);
+
+export default nextConfig;
