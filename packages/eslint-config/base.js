@@ -1,6 +1,6 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import importPlugin from 'eslint-plugin-import';
+import importX from 'eslint-plugin-import-x';
 import prettier from 'eslint-config-prettier';
 
 import { checkFile } from './rules/check-file.js';
@@ -12,8 +12,8 @@ import compat from './utils/compat.js';
 const baseConfig = tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   prettier,
   ...compat.extends('turbo'),
 
