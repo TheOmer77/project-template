@@ -1,4 +1,4 @@
-/** @type {import("eslint").Linter.Config} */
+/** @type {import("typescript-eslint").ConfigWithExtends} */
 export const nextRestrictedImports = {
   name: 'Next.js restricted imports',
   rules: {

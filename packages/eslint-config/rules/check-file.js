@@ -1,6 +1,6 @@
 import checkFilePlugin from 'eslint-plugin-check-file';
 
-/** @type {import("eslint").Linter.Config} */
+/** @type {import("typescript-eslint").ConfigWithExtends} */
 export const checkFile = {
   name: 'Check file',
   plugins: { 'check-file': checkFilePlugin },
@@ -14,7 +14,7 @@ export const checkFile = {
   },
 };
 
-/** @type {import("eslint").Linter.Config} */
+/** @type {import("typescript-eslint").ConfigWithExtends} */
 export const nextCheckFile = {
   rules: {
     'check-file/folder-naming-convention': [

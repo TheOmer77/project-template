@@ -1,6 +1,6 @@
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
-/** @type {import("eslint").Linter.Config} */
+/** @type {import("typescript-eslint").ConfigWithExtends} */
 export const sortImports = {
   name: 'Sort imports',
   plugins: { 'simple-import-sort': simpleImportSort },

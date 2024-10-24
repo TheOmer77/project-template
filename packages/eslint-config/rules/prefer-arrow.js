@@ -1,6 +1,6 @@
 import preferArrowFunctions from 'eslint-plugin-prefer-arrow-functions';
 
-/** @type {import("eslint").Linter.Config} */
+/** @type {import("typescript-eslint").ConfigWithExtends} */
 export const preferArrow = {
   name: 'Prefer arrow functions',
   plugins: { 'prefer-arrow-functions': preferArrowFunctions },
