@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./base": "./base.js",
-    "./next": "./next.js",
-    "./server": "./server.js"
+    "./base": "./configs/base.js",
+    "./next": "./configs/next.js",
+    "./server": "./configs/server.js"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
