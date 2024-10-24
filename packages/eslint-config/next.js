@@ -9,7 +9,7 @@ import compat from './utils/compat.js';
 
 const nextConfig = tseslint.config(
   ...baseConfig,
-  ...compat.extends('next/core-web-vitals'),
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   ...tailwind.configs['flat/recommended'],
 
   nextCheckFile,
