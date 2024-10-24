@@ -1,5 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": { "noEmit": false, "outDir": "./dist" },
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./dist",
+    "removeComments": true
+  },
   "include": ["src/hc.ts"]
 }
