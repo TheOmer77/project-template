@@ -1,3 +1,3 @@
-import serverConfig from '@repo/eslint-config/server.js';
+import serverConfig from '@repo/eslint-config/server';
 
 export default [...serverConfig];

@@ -2,10 +2,11 @@
   "name": "@repo/eslint-config",
   "private": true,
   "type": "module",
-  "files": [
-    "next.js",
-    "server.js"
-  ],
+  "exports": {
+    "./base": "./base.js",
+    "./next": "./next.js",
+    "./server": "./server.js"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
