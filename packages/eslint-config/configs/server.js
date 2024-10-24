@@ -1,5 +1,5 @@
-import tseslint from 'typescript-eslint';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 import baseConfig from './base.js';
 
