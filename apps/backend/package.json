@@ -30,9 +30,9 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
-    "@types/node": "^22.7.8",
+    "@types/node": "^22.8.1",
     "esbuild": "^0.24.0",
     "eslint": "^9.13.0",
-    "tsx": "^4.19.1"
+    "tsx": "^4.19.2"
   }
 }
