@@ -12,8 +12,8 @@
   "dependencies": {
     "@repo/shared": "workspace:*",
     "next": "15.0.3",
-    "react": "19.0.0-rc-69d4b800-20241021",
-    "react-dom": "19.0.0-rc-69d4b800-20241021"
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
     "@repo/backend": "workspace:*",
