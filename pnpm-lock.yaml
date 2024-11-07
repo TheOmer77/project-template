@@ -25,8 +25,8 @@ importers:
   apps/backend:
     dependencies:
       '@hono/node-server':
-        specifier: ^1.13.3
-        version: 1.13.3(hono@4.6.8)
+        specifier: ^1.13.5
+        version: 1.13.5(hono@4.6.8)
       '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -501,8 +501,8 @@ packages:
     resolution: {integrity: sha512-HFZ4Mp26nbWk9d/BpvP0YNL6W4UoZF0VFcTw/aPPA8RpOxeFQgK+ClABGgAUXs9Y/RGX/l1vOmrqz1MQt9MNuw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@hono/node-server@1.13.3':
-    resolution: {integrity: sha512-tEo3hcyQ6chvSnJ3tKzfX4z2sd7Q+ZkBwwBdW1Ya8Mz29dukxC2xcWiB/lAMwGJrYMW8QTgknIsLu1AsnMBe7A==}
+  '@hono/node-server@1.13.5':
+    resolution: {integrity: sha512-lSo+CFlLqAFB4fX7ePqI9nauEn64wOfJHAfc9duYFTvAG3o416pC0nTGeNjuLHchLedH+XyWda5v79CVx1PIjg==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -2605,7 +2605,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@hono/node-server@1.13.3(hono@4.6.8)':
+  '@hono/node-server@1.13.5(hono@4.6.8)':
     dependencies:
       hono: 4.6.8
 
