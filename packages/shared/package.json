@@ -17,7 +17,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^22.9.0",
-    "eslint": "^9.14.0",
+    "eslint": "^9.15.0",
     "tsup": "^8.3.5"
   }
 }
