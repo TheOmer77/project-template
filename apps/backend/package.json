@@ -25,7 +25,7 @@
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@repo/shared": "workspace:*",
-    "hono": "^4.6.10"
+    "hono": "^4.6.12"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
