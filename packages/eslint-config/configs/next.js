@@ -11,7 +11,7 @@ import { nextRestrictedImports } from '../rules/restricted-imports.js';
 
 const nextConfig = tseslint.config(
   ...baseConfig,
-  ...pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat.recommended,
   ...tailwind.configs['flat/recommended'],
 
   nextCheckFile,
