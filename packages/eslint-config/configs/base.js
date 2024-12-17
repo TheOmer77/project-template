@@ -2,12 +2,12 @@ import eslint from '@eslint/js';
 import prettier from 'eslint-config-prettier';
 import importX from 'eslint-plugin-import-x';
 import tseslint from 'typescript-eslint';
+import turbo from 'eslint-plugin-turbo';
 
 import { checkFile } from '../rules/check-file.js';
 import { preferArrow } from '../rules/prefer-arrow.js';
 import { preferTemplate } from '../rules/prefer-template.js';
 import { sortImports } from '../rules/sort-imports.js';
-import compat from '../utils/compat.js';
 
 const baseConfig = tseslint.config(
   eslint.configs.recommended,
@@ -15,7 +15,7 @@ const baseConfig = tseslint.config(
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   prettier,
-  ...compat.extends('turbo'),
+  turbo.configs['flat/recommended'],
 
   checkFile,
   preferArrow,
